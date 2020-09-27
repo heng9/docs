@@ -53,7 +53,7 @@ unrar e file.rar
 * 示列
 
 ```
-nohup command > /usr/log/myout.file 2>&1 &
+nohup command > /opt/logs/myout.log 2>&1 &
 ```
 
 * 2>&1 &详解
@@ -65,6 +65,10 @@ nohup command > /usr/log/myout.file 2>&1 &
   * \>> 尾部追加，不会覆盖原有内容
 
 > 2>&1就是用来将标准错误2重定向到标准输出1中的。此处1前面的&就是为了让bash将1解释成标准输出而不是文件1。至于最后一个&，则是让bash在后台执行。
+
+* /dev/null
+
+表示不输出任何信息到终端
 
 
 
@@ -460,7 +464,7 @@ rpm -ql nginx-1.18.0-1.el7.ngx.x86_64
 
 
 
-# CentOS7 安装 nginx
+# CentOS7  YUM 安装 nginx
 
 > 参考：https://www.cnblogs.com/larryzq/p/11009045.html
 
@@ -605,6 +609,90 @@ http {
     }
 }
 ```
+
+
+
+# CentOS7  源码 安装 nginx
+
+## 源码安装
+
+* 安装依赖包
+
+```
+yum install -y gcc openssl-devel pcre-devel zlib-devel gcc-c++
+```
+
+* 获取 nginx 源码
+
+```
+wget http://nginx.org/download/nginx-1.18.0.tar.gz
+```
+
+* 解压进入目录
+
+```
+tar -zxvf nginx-1.18.0.tar.gz
+cd nginx-1.18.0
+```
+
+* 创建文件夹做引导
+
+```
+mkdir -pv /usr/local/nginx/
+```
+
+* 定义配置 (提供HTTPS服务)
+
+```
+./configure --prefix=/usr/local/nginx --with-http_ssl_module
+```
+
+* 编译
+
+```
+make
+```
+
+* 编译安装
+
+```
+make install
+```
+
+* 启动
+
+```
+/usr/local/nginx/sbin/nginx
+```
+
+* 停止
+
+```
+/usr/local/nginx/sbin/nginx –s stop
+```
+
+* 重启
+
+```
+/usr/local/nginx/sbin/nginx –s reload
+```
+
+* 测试配置文件是否正常
+
+```
+/usr/local/nginx/sbin/nginx –t
+```
+
+## 配置参数
+
+| 配置                                             | 说明                                       |
+| ------------------------------------------------ | ------------------------------------------ |
+| --prefix=/usr/local/nginx                        | 安装部署后的根目录，默认为/usr/local/nginx |
+| --with-http_ssl_module                           | 提供HTTPS服务；依赖于OpenSSL               |
+| --error-log-path=/usr/local/nginx/logs/error.log | error日志放置位置                          |
+| --http-log-path=/usr/local/nginx/logs/access.log | access日志放置的位置                       |
+
+
 
 
 
@@ -879,10 +967,10 @@ GET _all/_settings
 
 1. 运行 jenkins war 包
 
-```java
+```shell
 java -jar jenkins.war
 
-nohup java -jar jenkins-2.225.war > /usr/local/jenkins/nohup.out 2>&1 &
+nohup java -jar jenkins.war --httpPort=8077 --prefix=/jenkins > /opt/log/jenkins.log 2>&1 &
 ```
 
 2. 初始化目录位置 webroot: $user.home/.jenkins
