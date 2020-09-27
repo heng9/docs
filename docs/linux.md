@@ -27,6 +27,10 @@ kill -9 `pid`
 top -H -p `pid`
 ```
 
+
+
+
+
 5. 文本输出
 ```
 cat `file_name` | grep `查询内容`

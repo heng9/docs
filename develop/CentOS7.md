@@ -1,3 +1,11 @@
+# Linux 目录介绍
+
+| 目录       | 说明             | 对比             |
+| ---------- | ---------------- | ---------------- |
+| /usr       | 系统级的目录     | C:/Windows       |
+| /usr/local | 用户级的程序目录 | C:/Progrem Files |
+| /opt       | 附加软件包       | D:/Software      |
+
 
 
 # Linux 文件上传下载
@@ -260,16 +268,10 @@ nohup /usr/local/tomcat8/bin/startup.sh &
 /usr/local/tomcat8/bin/catalina.sh run
 ```
 
-* tomcat
+* 关闭 tomcat
 
 ```shell
 /usr/local/tomcat8/bin/shutdown.sh
-```
-
-* 查看 tomcat 进程
-
-```shell
-ps aux | grep tomcat
 ```
 
 * 查看 java 后台运行的命令
@@ -277,6 +279,20 @@ ps aux | grep tomcat
 ```
 netstat -anptu|grep java
 ```
+
+## tomcat 日志输出
+
+* tomcat 日志 默认存放在  tomcat 的 logs 目录下的 catalina.out
+
+catalina.out 包含 tomcat的日志以及**控制台输出**的内容
+
+```shell
+tail -f catalina.out
+```
+
+
+
+
 
 
 
@@ -456,11 +472,432 @@ rpm -ql nginx-1.18.0-1.el7.ngx.x86_64
 
 # CentOS7 安装 mysql5.7
 
-> 参考：https://www.jianshu.com/p/276d59cbc529
->
-> https://www.jianshu.com/p/4587e9429702
+## 安装 mysql5.7
+
+1. **准备安装包**
+
+* 解压安装包
+
+```shel
+tar -xvf mysql-5.7.26-linux-glibc2.12-x86_64.tar.gz
+```
+
+* 移动并重命名
+
+```shell
+mv mysql-5.7.26-linux-glibc2.12-x86_64 /usr/local/mysql
+```
 
 
+
+2. **创建MySQL用户组合用户**
+
+* 创建MySQL用户组 和 用户并修改权限
+
+```shell
+groupadd mysql
+useradd -r -g mysql mysql
+```
+
+* 创建数据目录并赋予权限
+
+```shell
+mkdir -p /data/mysql
+chown mysql:mysql -R /data/mysql
+```
+
+
+
+3. **初始化数据库**
+
+* 配置my.cnf
+
+```
+vi /etc/my.cnf
+```
+
+内容如下
+
+```shell
+[mysqld]
+bind-address=0.0.0.0
+port=3306
+user=mysql
+basedir=/usr/local/mysql
+datadir=/data/mysql
+log-error=/data/mysql/mysql.err
+pid-file=/data/mysql/mysql.pid
+socket=/tmp/mysql.sock
+
+#character config
+character_set_server=utf8mb4
+symbolic-links=0
+explicit_defaults_for_timestamp=true
+```
+
+* 初始化
+
+```shell
+/usr/local/mysql/bin/mysqld --defaults-file=/etc/my.cnf --basedir=/usr/local/mysql/ --datadir=/data/mysql/ --user=mysql --initialize
+```
+
+
+
+4. **启动MySQL服务**
+
+* 先将 mysql.server 放置到 /etc/init.d/mysql 中
+
+```shell
+cp /usr/local/mysql/support-files/mysql.server /etc/init.d/mysql
+```
+
+* 启动
+
+```
+service mysql start
+```
+
+![mysql](.\mysql.png)
+
+到这里说明MySQL已经安装成功了
+
+* 添加软链接
+
+```shell
+ln -s /usr/local/mysql/bin/mysql /usr/bin
+```
+
+
+
+5. **修改密码**
+
+* 查看初始密码
+
+```
+cat /data/mysql/mysql.err
+```
+
+* 登陆MySQL
+
+```
+mysql -uroot -p
+```
+
+* 设置密码
+
+```
+SET PASSWORD = PASSWORD('root');
+ALTER USER 'root'@'localhost' PASSWORD EXPIRE NEVER;
+FLUSH PRIVILEGES;
+```
+
+
+
+6. **远程连接**
+
+```
+use mysql;
+update user set host = '%' where user = 'root';    #使root能再任何host访问
+FLUSH PRIVILEGES;
+```
+
+
+
+7. **mysql 命令**
+
+* 启动 mysql 服务 
+
+```shell
+service mysql start
+```
+
+* 停止 mysql 服务
+
+```shell
+service mysql stop
+```
+
+* 重启 mysql 服务 
+
+```shell
+service mysql restart
+```
+
+修改 ini 配置文件后，重启 mysql 服务生效
+
+
+
+## 报错解决
+
+* mysql 登录报错
+
+```
+./mysql -uroot -p
+
+./mysql: error while loading shared libraries: libncurses.so.5: cannot open shared object file: No such file or directory
+```
+
+解决办法
+
+```
+yum install -y libncurses*
+```
+
+
+
+## 命令行指令
+
+* 查看 server_id
+
+```
+show variables like 'server_id';
+```
+
+
+
+
+
+## 开启 binlog 日志
+
+* binlog 日志配置
+
+```shell
+# binlog 配置
+log-bin=/data/mysql/logs/mysql-bin.log
+expire-logs-days=14
+max-binlog-size=1024M
+server-id=1
+```
+
+* 查询 binlog 日志是否开启
+
+```
+show variables like 'log_bin';
+```
+
+
+
+# MySql 主从复制
+
+## 主服务器中有数据
+
+1. 使用 mysqldump 工具创建要复制的所有数据库的转储
+
+```shell
+/usr/local/mysql/bin/mysqldump -uroot -p --all-databases --master-data=1 > dbdump.db
+```
+
+2. 把备份出来的数据传输到从服务器
+
+```
+scp dbdump.db root@192.168.0.104:/data/
+```
+
+3. 导入数据到从服务器，进入命令行，执行：
+
+```
+source /data/dbdump.db
+```
+
+**注意**：经试验，无需 复制 主数据库数据，表也不需要建立，只要在 binlog 开启 前的数据库操作，会同步到从数据库。
+
+
+
+## 主从复制
+
+**注意**：确保在主服务器上 `skip_networking` 选项处于 `OFF` 关闭状态, 这是默认值。
+
+如果是启用的，则从站无法与主站通信，并且复制失败。
+
+```
+show variables like '%skip_networking%';
+```
+
+* 在 主数据库 创建一个专门用于复制数据的用户
+
+```
+CREATE USER 'backup'@'%';
+GRANT REPLICATION SLAVE ON *.* TO 'backup'@'%' identified by 'backup@123456';
+FLUSH PRIVILEGES;
+```
+
+* 配置从服务器，修改 my.cnf 文件并重启
+
+```
+[mysqld]
+server-id=2
+```
+
+```
+service mysql restart
+```
+
+* 在从服务器配置连接到主服务器的相关信息
+
+进入命令行，执行：
+
+```
+CHANGE MASTER TO
+MASTER_HOST='192.168.0.105',  -- 主服务器的主机名(也可以是 IP) 
+MASTER_PORT=3306,
+MASTER_USER='backup',
+MASTER_PASSWORD='backup@123456';
+```
+
+* 启动从服务器的复制线程
+
+```
+start slave;
+stop slave;  # 停止复制线程
+```
+
+* 查看状态， I/O 线程和 SQL 线程 是否都启动成功
+
+```
+show slave status\G
+```
+
+```shell
+*************************** 1. row ***************************
+               Slave_IO_State: Waiting for master to send event
+                  Master_Host: 192.168.0.105
+                  Master_User: backup
+                  Master_Port: 3306
+                Connect_Retry: 60
+              Master_Log_File: mysql-bin.000003
+          Read_Master_Log_Pos: 7860
+               Relay_Log_File: localhost-relay-bin.000011
+                Relay_Log_Pos: 990
+        Relay_Master_Log_File: mysql-bin.000003
+             Slave_IO_Running: Yes
+            Slave_SQL_Running: Yes
+              Replicate_Do_DB: 
+          Replicate_Ignore_DB: 
+           Replicate_Do_Table: 
+       Replicate_Ignore_Table: 
+      Replicate_Wild_Do_Table: 
+  Replicate_Wild_Ignore_Table: 
+                   Last_Errno: 0
+                   Last_Error: 
+                 Skip_Counter: 0
+          Exec_Master_Log_Pos: 7860
+              Relay_Log_Space: 1367
+              Until_Condition: None
+               Until_Log_File: 
+                Until_Log_Pos: 0
+           Master_SSL_Allowed: No
+           Master_SSL_CA_File: 
+           Master_SSL_CA_Path: 
+              Master_SSL_Cert: 
+            Master_SSL_Cipher: 
+               Master_SSL_Key: 
+        Seconds_Behind_Master: 0
+Master_SSL_Verify_Server_Cert: No
+                Last_IO_Errno: 0
+                Last_IO_Error: 
+               Last_SQL_Errno: 0
+               Last_SQL_Error: 
+  Replicate_Ignore_Server_Ids: 
+             Master_Server_Id: 1
+                  Master_UUID: f4626cb9-ff92-11ea-b4b1-000c294799e9
+             Master_Info_File: /data/mysql/master.info
+                    SQL_Delay: 0
+          SQL_Remaining_Delay: NULL
+      Slave_SQL_Running_State: Slave has read all relay log; waiting for more updates
+           Master_Retry_Count: 86400
+                  Master_Bind: 
+      Last_IO_Error_Timestamp: 
+     Last_SQL_Error_Timestamp: 
+               Master_SSL_Crl: 
+           Master_SSL_Crlpath: 
+           Retrieved_Gtid_Set: 
+            Executed_Gtid_Set: 
+                Auto_Position: 0
+         Replicate_Rewrite_DB: 
+                 Channel_Name: 
+           Master_TLS_Version: 
+
+```
+
+
+
+# MySql 读写分离
+
+## sharding-jdbc 读写分离
+
+* spring-boot 项目依赖
+
+```xml
+<parent>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-parent</artifactId>
+    <version>2.0.6.RELEASE</version>
+    <relativePath/>
+</parent>
+<dependencies>
+    <dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-web</artifactId>
+    </dependency>
+    <dependency>
+        <groupId>mysql</groupId>
+        <artifactId>mysql-connector-java</artifactId>
+        <version>5.1.47</version>
+    </dependency>
+    <dependency>
+        <groupId>org.mybatis.spring.boot</groupId>
+        <artifactId>mybatis-spring-boot-starter</artifactId>
+        <version>2.0.1</version>
+    </dependency>
+    <dependency>
+        <groupId>com.alibaba</groupId>
+        <artifactId>druid-spring-boot-starter</artifactId>
+        <version>1.1.16</version>
+    </dependency>
+    <dependency>
+        <groupId>org.apache.shardingsphere</groupId>
+        <artifactId>sharding-jdbc-spring-boot-starter</artifactId>
+        <version>4.0.0-RC1</version>
+    </dependency>
+</dependencies>
+```
+
+* spring-boot 项目配置
+
+```yml
+server:
+  port: 8084
+spring:
+  shardingsphere:
+    datasource:
+      names: master,slave
+      master:
+        driver-class-name: com.mysql.jdbc.Driver
+        password: root
+        type: com.alibaba.druid.pool.DruidDataSource
+        url: jdbc:mysql://192.168.0.105:3306/db_admin?characterEncoding=utf-8
+        username: root
+      slave:
+        driver-class-name: com.mysql.jdbc.Driver
+        password: root
+        type: com.alibaba.druid.pool.DruidDataSource
+        url: jdbc:mysql://192.168.0.104:3306/db_admin?characterEncoding=utf-8
+        username: root
+    masterslave:
+      name: dataSource
+      load-balance-algorithm-type: round_robin
+      master-data-source-name: master
+      slave-data-source-names: slave
+    props:
+      sql:
+        show: true
+
+mybatis:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  mapper-locations: classpath:mappers/*.xml
+  type-aliases-package: com.xxx.module.*.entity
+```
 
 
 
@@ -1024,12 +1461,11 @@ server {
 
 * Locale
 * Git
+* Git Parameters
 * Maven Integration
 * SSH build Agents
 
 ## jenkins 部署maven项目
-
-
 
 jenkins执行完任务后，会把衍生出的进程杀死，导致不能启动tomcat
 
