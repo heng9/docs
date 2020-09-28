@@ -6,6 +6,12 @@
 | /usr/local | 用户级的程序目录 | C:/Progrem Files |
 | /opt       | 附加软件包       | D:/Software      |
 
+建议：
+
+* 安装包放在 /opt 下
+
+
+
 
 
 # Linux 文件上传下载
@@ -84,7 +90,9 @@ nohup command > /opt/logs/myout.log 2>&1 &
 
 * 环境变量
 
-```
+编辑 profile 文件，在末尾添加环境变量，之后重新加载
+
+```shell
 vim /etc/profile
 
 export JAVA_HOME=/usr/local/java1.8/jdk1.8.0_131
@@ -478,7 +486,7 @@ rpm -ql nginx-1.18.0-1.el7.ngx.x86_64
 
 * 解压安装包
 
-```shel
+```shell
 tar -xvf mysql-5.7.26-linux-glibc2.12-x86_64.tar.gz
 ```
 
@@ -490,7 +498,7 @@ mv mysql-5.7.26-linux-glibc2.12-x86_64 /usr/local/mysql
 
 
 
-2. **创建MySQL用户组合用户**
+2. **创建MySQL用户组 和 用户**
 
 * 创建MySQL用户组 和 用户并修改权限
 

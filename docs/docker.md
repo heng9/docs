@@ -1,28 +1,3 @@
-﻿# windows 安装 docker
-> 建议使用 [DockerToolbox](https://www.cnblogs.com/canger/p/9028723.html) 安装 docker 
-
-
-# docker-machine
-> Docker Machine 是 Docker 官方提供的一个工具，<br/>
-它可以帮助我们在远程的机器上安装 Docker，<br/>
-或者在虚拟机 host 上直接安装虚拟机并在虚拟机中安装 Docker。<br/>
-我们还可以通过 docker-machine 命令来管理这些虚拟机和 Docker。<br/>
-
-
-* **docker-machine命令**
-
-```
-docker-machine create 
-    --engine-registry-mirror=https://ei1i216c.mirror.aliyuncs.com 
-    -d virtualbox 
-default
-
-
-docker-machine env default
-```
-
-
-
 # docker
 
 * **docker使用注意**
@@ -85,7 +60,7 @@ sameersbn/redis
 
 ### 使用Compose 基本上分为三步：
 
-* Dockerfile         : 定义应用的运行环境
+* Dockerfile:  定义应用的运行环境
 * docker-compose.yml : 定义组成应用的各服务
 * docker-compose up  : 启动整个应用
 
@@ -152,7 +127,6 @@ yum install -y docker-ce-18.09.1 docker-ce-cli-18.09.1 containerd.io
  Userid: "Docker Release (CE rpm) <docker@docker.com>"
  指纹: 060A 61C5 1B55 8A7F 742B 77AA C52F EB6B 621E 9F35
  来自: https://mirrors.aliyun.com/docker-ce/linux/centos/gpg
-
 ```
 
 6. 启动 Docker
@@ -176,7 +150,7 @@ docker run hello-world
 
 
 
-# 编写 dockerfile
+# 编写 Dockerfile
 
 编写 build.sh,   构建 镜像
 

@@ -1646,10 +1646,10 @@
             {
               "name": "username",
               "type": "VARCHAR(64)",
-              "chnname": "用户名",
+              "chnname": "账号",
               "remark": "",
               "pk": false,
-              "notNull": true,
+              "notNull": false,
               "autoIncrement": false,
               "defaultValue": ""
             },
@@ -1659,7 +1659,7 @@
               "chnname": "密码",
               "remark": "",
               "pk": false,
-              "notNull": true,
+              "notNull": false,
               "autoIncrement": false,
               "defaultValue": ""
             },
@@ -1684,6 +1684,42 @@
               "defaultValue": ""
             },
             {
+              "name": "full_name",
+              "type": "VARCHAR(32)",
+              "remark": "",
+              "chnname": "用户姓名"
+            },
+            {
+              "name": "nickname",
+              "type": "VARCHAR(64)",
+              "remark": "",
+              "chnname": "用户昵称"
+            },
+            {
+              "name": "avatar",
+              "type": "VARCHAR(1024)",
+              "remark": "",
+              "chnname": "头像"
+            },
+            {
+              "name": "gender",
+              "type": "VARCHAR(32)",
+              "remark": "",
+              "chnname": "性别"
+            },
+            {
+              "name": "birthday",
+              "type": "DATETIME",
+              "remark": "",
+              "chnname": "生日"
+            },
+            {
+              "name": "sign",
+              "type": "VARCHAR(1024)",
+              "remark": "",
+              "chnname": "个性签名"
+            },
+            {
               "name": "disabled",
               "type": "BIT(1)",
               "chnname": "是否禁用：0-否，1-是",
@@ -1692,6 +1728,12 @@
               "notNull": false,
               "autoIncrement": false,
               "defaultValue": ""
+            },
+            {
+              "name": "untitled",
+              "type": "BIT(1)",
+              "remark": "",
+              "chnname": "是否注销"
             },
             {
               "name": "deleted",
@@ -2984,7 +3026,7 @@
               "defaultValue": ""
             },
             {
-              "name": "user_info_id",
+              "name": "user_id",
               "type": "BIGINT",
               "chnname": "用户信息ID",
               "remark": "",
@@ -3465,9 +3507,9 @@
               "defaultValue": ""
             },
             {
-              "name": "user_info_id",
+              "name": "user_id",
               "type": "BIGINT",
-              "chnname": "用户信息ID",
+              "chnname": "用户ID",
               "remark": "",
               "pk": false,
               "notNull": false,
@@ -3763,7 +3805,7 @@
             },
             {
               "name": "full_name",
-              "type": "DefaultString",
+              "type": "VARCHAR(32)",
               "remark": "",
               "chnname": "用户姓名"
             },
@@ -3876,41 +3918,150 @@
             }
           ],
           "chnname": "用户信息表(废弃)"
+        },
+        {
+          "title": "sys_third_token",
+          "fields": [
+            {
+              "name": "id",
+              "type": "BIGINT",
+              "remark": "",
+              "chnname": "主键ID",
+              "pk": true,
+              "notNull": true,
+              "autoIncrement": true
+            },
+            {
+              "name": "platform",
+              "type": "VARCHAR(32)",
+              "remark": "",
+              "chnname": "第三方平台"
+            },
+            {
+              "name": "open_id",
+              "type": "VARCHAR(64)",
+              "remark": "",
+              "chnname": "第三方开放ID"
+            },
+            {
+              "name": "access_token",
+              "type": "VARCHAR(128)",
+              "remark": "",
+              "chnname": "access_token"
+            },
+            {
+              "name": "expires_in",
+              "type": "BigInt",
+              "remark": "",
+              "chnname": "access_token过期时间"
+            },
+            {
+              "name": "refresh_token",
+              "type": "VARCHAR(128)",
+              "remark": "",
+              "chnname": "refresh_token"
+            },
+            {
+              "name": "refresh_token_expires_in",
+              "type": "BigInt",
+              "remark": "",
+              "chnname": "refresh_token过期时间"
+            },
+            {
+              "name": "deleted",
+              "type": "BIT(1)",
+              "remark": "",
+              "chnname": "是否删除：0-否，1-是",
+              "defaultValue": "0"
+            },
+            {
+              "name": "creator",
+              "type": "VARCHAR(64)",
+              "remark": "",
+              "chnname": "创建人",
+              "defaultValue": "NULL"
+            },
+            {
+              "name": "create_time",
+              "type": "DATETIME",
+              "remark": "",
+              "chnname": "创建时间",
+              "defaultValue": "CURRENT_TIMESTAMP"
+            },
+            {
+              "name": "editor",
+              "type": "VARCHAR(64)",
+              "remark": "",
+              "chnname": "编辑人",
+              "defaultValue": "NULL"
+            },
+            {
+              "name": "edit_time",
+              "type": "DATETIME",
+              "remark": "",
+              "chnname": "编辑时间",
+              "defaultValue": "CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP"
+            }
+          ],
+          "indexs": [],
+          "headers": [
+            {
+              "fieldName": "chnname",
+              "relationNoShow": false
+            },
+            {
+              "fieldName": "name",
+              "relationNoShow": false
+            },
+            {
+              "fieldName": "type",
+              "relationNoShow": false
+            },
+            {
+              "fieldName": "dataType",
+              "relationNoShow": true
+            },
+            {
+              "fieldName": "remark",
+              "relationNoShow": true
+            },
+            {
+              "fieldName": "pk",
+              "relationNoShow": false
+            },
+            {
+              "fieldName": "notNull",
+              "relationNoShow": true
+            },
+            {
+              "fieldName": "autoIncrement",
+              "relationNoShow": true
+            },
+            {
+              "fieldName": "defaultValue",
+              "relationNoShow": true
+            },
+            {
+              "fieldName": "relationNoShow",
+              "relationNoShow": true
+            },
+            {
+              "fieldName": "uiHint",
+              "relationNoShow": true
+            }
+          ],
+          "chnname": "第三方token记录表"
         }
       ],
       "graphCanvas": {
         "nodes": [
           {
             "shape": "table",
-            "title": "t_qq_user",
-            "moduleName": false,
-            "x": -180,
-            "y": -40,
-            "id": "f3adc08d"
-          },
-          {
-            "shape": "table",
-            "title": "t_github_user",
-            "moduleName": false,
-            "x": -250,
-            "y": 340,
-            "id": "785b80d3"
-          },
-          {
-            "shape": "table",
             "title": "sys_user",
             "moduleName": false,
             "x": 260,
-            "y": -130,
+            "y": -90,
             "id": "dcab35b1"
-          },
-          {
-            "shape": "table",
-            "title": "t_user_info",
-            "moduleName": false,
-            "x": -610,
-            "y": -130,
-            "id": "9ab4dc70"
           },
           {
             "shape": "table",
@@ -3925,24 +4076,16 @@
             "title": "sys_log",
             "moduleName": false,
             "x": -260,
-            "y": 690,
+            "y": 680,
             "id": "efba52b4"
           },
           {
             "shape": "table",
             "title": "sys_role",
             "moduleName": false,
-            "x": 670,
+            "x": 640,
             "y": 70,
             "id": "325ae8ba"
-          },
-          {
-            "shape": "table",
-            "title": "r_user_role",
-            "moduleName": false,
-            "x": 650,
-            "y": -170,
-            "id": "628a0469"
           },
           {
             "shape": "table",
@@ -3983,6 +4126,46 @@
             "x": 1000,
             "y": 370,
             "id": "6140a1b9"
+          },
+          {
+            "shape": "table",
+            "title": "t_user_info",
+            "moduleName": false,
+            "x": 260,
+            "y": -460,
+            "id": "9ab4dc70"
+          },
+          {
+            "shape": "table",
+            "title": "sys_third_token",
+            "moduleName": false,
+            "x": -200,
+            "y": -460,
+            "id": "2ec3a10a"
+          },
+          {
+            "shape": "table",
+            "title": "t_qq_user",
+            "moduleName": false,
+            "x": -190,
+            "y": -70,
+            "id": "f3adc08d"
+          },
+          {
+            "shape": "table",
+            "title": "t_github_user",
+            "moduleName": false,
+            "x": -260,
+            "y": 300,
+            "id": "785b80d3"
+          },
+          {
+            "shape": "table",
+            "title": "r_user_role",
+            "moduleName": false,
+            "x": 630,
+            "y": -170,
+            "id": "628a0469"
           }
         ],
         "edges": []
