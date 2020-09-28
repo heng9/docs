@@ -14,6 +14,36 @@
 
 
 
+# Linux 用户组 和 用户
+
+* 添加用户组
+
+```
+groupadd group_name
+```
+
+* 添加用户到 用户组
+
+```
+useradd user_name -g grup_name -p password
+```
+
+* 删除用户组
+
+```
+groupdel group_name
+```
+
+* 删除用户
+
+```
+userdel user_name
+```
+
+
+
+
+
 # Linux 文件上传下载
 
 * 安装服务
@@ -1220,32 +1250,39 @@ docker run hello-world
 
 
 
-# CentsOS 安装 ElasticSearch
+# CentsOS 安装 ElasticSearch6.8.6
 
-## 修改配置
+1. 解压压缩包到 /usr/local/elasticsearch 目录下
+
+```shell
+tar -zxvf elasticsearch-6.8.6.tar.gz
+mv elasticsearch-6.8.6.tar.gz  /usr/local/elasticsearch/
+```
+
+2. 修改配置
 
 修改 elasticsearch/config/elasticsearch.yml
 
 ```shell
 network.host: 0.0.0.0  #改为0.0.0.0对外开放，如对特定ip开放则改为指定ip
-http.port: 9200      #可更改端口不为9200
-cluster.initial_master_nodes: ["node-1"]
+http.port: 9200        #可更改端口不为9200
 ```
 
-## 启动 elasticSearch
+3. 启动 elasticSearch
 
 **由于elasticsearch不允许root用户操作，所以需要建立子用户**
 
 * 增加一个子用户
 
 ```
-useradd esuser
+groupadd esgroup
+useradd esuser -g esgroup -p espassword
 ```
 
 * 赋权
 
 ```
-chown -R esuser:esuser /usr/local/elasticsearch-7.4.2
+chown -R esuser:esgroup /usr/local/elasticsearch
 ```
 
 * 切换成子用户
@@ -1257,7 +1294,7 @@ su esuser
 * 启动 (-d表示后台启动)
 
 ```
-./elasticsearch -d    
+/usr/local/elasticsearch/bin/elasticsearch -d    
 ```
 
 
@@ -1300,16 +1337,66 @@ cluster.initial_master_nodes: ["node-1"]
 
 
 
-
-
-
-
 ## ElasticSearch 命令
 
 * 查看所有索引
 
 ```
-curl -X GET http://localhost:9200/_cat/indices?v  
+curl -X GET http://127.0.0.1:9200/_cat/indices?v  
+```
+
+* 创建索引
+
+```
+curl -X PUT http://127.0.0.1:9200/order
+```
+
+* 删除索引
+
+```
+curl -X DELETE http://127.0.0.1:9200/order
+```
+
+* 创建带有类型、映射的索引
+
+入参：
+
+```
+{
+	"settings": {
+		"number_of_shards": 3,
+		"number_of_replicas": 2
+	},
+	"mapping": {
+		"_doc": {
+			"properties": {
+				"order_id": {
+					"type": "long"
+				},
+				"order_no": {
+					"type": "text"
+				},
+				"price": {
+					"type": "double"
+				}
+			}
+		}
+	}
+}
+```
+
+* 修改参数
+
+```
+PUT http://127.0.0.1:9200/order/_settings
+```
+
+入参
+
+```
+{
+	"number_of_replicas": 3
+}
 ```
 
 
@@ -1318,7 +1405,19 @@ curl -X GET http://localhost:9200/_cat/indices?v
 
 ## 添加 IK 分词器
 
-将 压缩包解压到  /elasticsearch-7.2.0/plugins/ik 下，重启即可
+将 压缩包解压到  /elasticsearch/plugins/ik 下，重启即可
+
+```shell
+unzip elasticsearch-analysis-ik-6.8.6.zip -d /usr/local/elasticsearch/plugins/ik/
+```
+
+杀掉进程，重启
+
+```
+/usr/local/elasticsearch/bin/elasticsearch -d
+```
+
+* 分词
 
 ```shell
 curl -XGET http://localhost:9200/_analyze?pretty -H 'Content-Type:application/json' -d'  {"analyzer":"ik_smart","text":"团子大家族"}' 
