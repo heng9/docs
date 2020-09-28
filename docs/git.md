@@ -108,6 +108,16 @@ git rebase 出现冲突后，可以手动编辑冲突文件，冲突解决完之
 git rebase -i HEAD~3
 ```
 
+```
+
+```
+
+
+
+
+
+
+
 
 * cherry-pick
 1. 单独合并一个提交
