@@ -420,6 +420,12 @@ exit
 
 
 
+
+
+
+
+
+
 # CentOS7 开启端口访问
 
 > CentOS7 默认的防火墙不是 **iptables**, 而是 **firewalle**
@@ -1250,18 +1256,20 @@ docker run hello-world
 
 
 
-# CentsOS 安装 ElasticSearch6.8.6
+# CentsOS 安装 ElasticSearch6
 
-1. 解压压缩包到 /usr/local/elasticsearch 目录下
+## Elasticsearch 安装
+
+1. 解压并重命名
 
 ```shell
 tar -zxvf elasticsearch-6.8.6.tar.gz
-mv elasticsearch-6.8.6.tar.gz  /usr/local/elasticsearch/
+mv elasticsearch-6.8.6  /usr/local/elasticsearch
 ```
 
 2. 修改配置
 
-修改 elasticsearch/config/elasticsearch.yml
+修改 config/elasticsearch.yml
 
 ```shell
 network.host: 0.0.0.0  #改为0.0.0.0对外开放，如对特定ip开放则改为指定ip
@@ -1297,42 +1305,10 @@ su esuser
 /usr/local/elasticsearch/bin/elasticsearch -d    
 ```
 
+* 添加软链接
 
-
-* 报错
-
-1. 
-
-```
-[1]: max virtual memory areas vm.max_map_count [65530] is too low, increase to at least [262144]
-```
-
-解决办法
-
-切换到root用户修改配置sysctl.conf，添加下面配置：
-
-```
-vm.max_map_count=655360
-```
-
-并执行命令
-
-```
-sysctl -p
-```
-
-重新启动elasticsearch
-
-2. 
-
-```
-[1]: the default discovery settings are unsuitable for production use; at least one of [discovery.seed_hosts, discovery.seed_providers, cluster.initial_master_nodes] must be configured
-```
-
-修改elasticsearch.yml配置文件
-
-```
-cluster.initial_master_nodes: ["node-1"]
+```shell
+ln -s /usr/local/elasticsearch/bin/elasticsearch /usr/bin
 ```
 
 
@@ -1403,17 +1379,20 @@ PUT http://127.0.0.1:9200/order/_settings
 
 
 
-## 添加 IK 分词器
+## IK 分词器
+
+* 添加 IK 分词器
 
 将 压缩包解压到  /elasticsearch/plugins/ik 下，重启即可
 
 ```shell
-unzip elasticsearch-analysis-ik-6.8.6.zip -d /usr/local/elasticsearch/plugins/ik/
+unzip elasticsearch-analysis-ik-6.8.6.zip -d /usr/local/elasticsearch/plugins/ik
 ```
 
 杀掉进程，重启
 
-```
+```shell
+ps -ef|grep elasticsearch
 /usr/local/elasticsearch/bin/elasticsearch -d
 ```
 
@@ -1446,13 +1425,11 @@ curl -XGET http://localhost:9200/_analyze?pretty -H 'Content-Type:application/js
 }
 ```
 
+* IK分词器 分词模式
 
+  * ik_max_word : 将文本做最**细粒度**的拆分
 
-IK分词器有两种分词模式：ik_max_word和ik_smart模式。
-
-* ik_max_word : 将文本做最**细粒度**的拆分
-
-* ik_smart : 将文本做最**粗粒度**的拆分
+  * ik_smart : 将文本做最**粗粒度**的拆分
 
 两种分词器使用的最佳实践是：索引时用 ik_max_word，在搜索时用 ik_smart
 
