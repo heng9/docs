@@ -420,6 +420,53 @@ exit
 
 
 
+# CentOS 安装 Redis
+
+(参考链接)[https://www.cnblogs.com/heqiuyong/p/10463334.html]
+
+* 安装 gcc 环境（gcc -v）
+
+```
+yum install -y gcc 
+```
+
+* 解压 并 编译
+
+```
+tar -zxvf redis-5.0.3.tar.gz
+cd redis-5.0.3
+make
+```
+
+* 安装并指定安装目录
+
+```
+make install PREFIX=/usr/local/redis
+```
+
+* 启动
+
+1. 前台启动
+
+```
+/usr/local/redis/bin/redis-server
+```
+
+2. 后台启动
+
+* 从 redis 的源码目录中复制 redis.conf 到 redis 的安装目录
+
+```
+cp /opt/redis-5.0.3/redis.conf /usr/local/redis/bin/
+```
+
+* 修改 redis.conf 文件，把 daemonize no 改为 daemonize yes，启动 redis
+
+```
+
+/usr/local/redis/bin/redis-server /usr/local/redis/bin/redis.conf
+```
+
 
 
 
@@ -486,7 +533,7 @@ netstat -lnpt|grep 80
 
 
 
-# CnetOS YUM
+# CentOS YUM
 
 > Shell前端软件包管理器, 基于RPM包管理, 能够从指定的服务器自动下载RPM包并且安装
 
