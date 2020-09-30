@@ -2,979 +2,10 @@
   "modules": [
     {
       "name": "系统模块",
-      "chnname": "",
+      "chnname": "system",
       "entities": [
         {
-          "title": "r_role_menu",
-          "chnname": "系统角色与菜单关联表",
-          "fields": [
-            {
-              "name": "id",
-              "type": "BIGINT",
-              "chnname": "主键ID",
-              "remark": "",
-              "pk": true,
-              "notNull": true,
-              "autoIncrement": true,
-              "defaultValue": ""
-            },
-            {
-              "name": "role_id",
-              "type": "BIGINT",
-              "chnname": "角色ID",
-              "remark": "",
-              "pk": false,
-              "notNull": false,
-              "autoIncrement": false,
-              "defaultValue": ""
-            },
-            {
-              "name": "menu_id",
-              "type": "BIGINT",
-              "chnname": "菜单ID",
-              "remark": "",
-              "pk": false,
-              "notNull": false,
-              "autoIncrement": false,
-              "defaultValue": ""
-            },
-            {
-              "name": "deleted",
-              "type": "BIT(1)",
-              "remark": "",
-              "chnname": "是否删除"
-            },
-            {
-              "name": "creator",
-              "type": "VARCHAR(64)",
-              "remark": "",
-              "chnname": "创建人"
-            },
-            {
-              "name": "create_time",
-              "type": "DATETIME",
-              "remark": "",
-              "chnname": "创建时间"
-            },
-            {
-              "name": "editor",
-              "type": "VARCHAR(64)",
-              "remark": "",
-              "chnname": "编辑人"
-            },
-            {
-              "name": "edit_time",
-              "type": "DATETIME",
-              "remark": "",
-              "chnname": "编辑时间"
-            }
-          ],
-          "indexs": [],
-          "headers": [
-            {
-              "fieldName": "chnname",
-              "relationNoShow": false
-            },
-            {
-              "fieldName": "name",
-              "relationNoShow": false
-            },
-            {
-              "fieldName": "type",
-              "relationNoShow": false
-            },
-            {
-              "fieldName": "dataType",
-              "relationNoShow": true
-            },
-            {
-              "fieldName": "remark",
-              "relationNoShow": true
-            },
-            {
-              "fieldName": "pk",
-              "relationNoShow": false
-            },
-            {
-              "fieldName": "notNull",
-              "relationNoShow": true
-            },
-            {
-              "fieldName": "autoIncrement",
-              "relationNoShow": true
-            },
-            {
-              "fieldName": "defaultValue",
-              "relationNoShow": true
-            },
-            {
-              "fieldName": "relationNoShow",
-              "relationNoShow": true
-            },
-            {
-              "fieldName": "uiHint",
-              "relationNoShow": true
-            }
-          ]
-        },
-        {
-          "title": "r_role_permission",
-          "chnname": "角色与权限关联表",
-          "fields": [
-            {
-              "name": "id",
-              "type": "BIGINT",
-              "chnname": "主键ID",
-              "remark": "",
-              "pk": true,
-              "notNull": true,
-              "autoIncrement": true,
-              "defaultValue": ""
-            },
-            {
-              "name": "role_id",
-              "type": "BIGINT",
-              "chnname": "角色ID",
-              "remark": "",
-              "pk": false,
-              "notNull": false,
-              "autoIncrement": false,
-              "defaultValue": ""
-            },
-            {
-              "name": "permission_id",
-              "type": "BIGINT",
-              "chnname": "权限ID",
-              "remark": "",
-              "pk": false,
-              "notNull": false,
-              "autoIncrement": false,
-              "defaultValue": ""
-            },
-            {
-              "name": "deleted",
-              "type": "BIT(1)",
-              "remark": "",
-              "chnname": "是否删除"
-            },
-            {
-              "name": "creator",
-              "type": "VARCHAR(64)",
-              "remark": "",
-              "chnname": "创建人"
-            },
-            {
-              "name": "create_time",
-              "type": "DATETIME",
-              "remark": "",
-              "chnname": "创建时间"
-            },
-            {
-              "name": "editor",
-              "type": "VARCHAR(64)",
-              "remark": "",
-              "chnname": "编辑人"
-            },
-            {
-              "name": "edit_time",
-              "type": "DATETIME",
-              "remark": "",
-              "chnname": "编辑时间"
-            }
-          ],
-          "indexs": [],
-          "headers": [
-            {
-              "fieldName": "chnname",
-              "relationNoShow": false
-            },
-            {
-              "fieldName": "name",
-              "relationNoShow": false
-            },
-            {
-              "fieldName": "type",
-              "relationNoShow": false
-            },
-            {
-              "fieldName": "dataType",
-              "relationNoShow": true
-            },
-            {
-              "fieldName": "remark",
-              "relationNoShow": true
-            },
-            {
-              "fieldName": "pk",
-              "relationNoShow": false
-            },
-            {
-              "fieldName": "notNull",
-              "relationNoShow": true
-            },
-            {
-              "fieldName": "autoIncrement",
-              "relationNoShow": true
-            },
-            {
-              "fieldName": "defaultValue",
-              "relationNoShow": true
-            },
-            {
-              "fieldName": "relationNoShow",
-              "relationNoShow": true
-            },
-            {
-              "fieldName": "uiHint",
-              "relationNoShow": true
-            }
-          ]
-        },
-        {
-          "title": "r_user_role",
-          "chnname": "系统用户与角色关联表",
-          "fields": [
-            {
-              "name": "id",
-              "type": "BIGINT",
-              "chnname": "主键ID",
-              "remark": "",
-              "pk": true,
-              "notNull": true,
-              "autoIncrement": true,
-              "defaultValue": ""
-            },
-            {
-              "name": "user_id",
-              "type": "BIGINT",
-              "chnname": "系统用户ID",
-              "remark": "",
-              "pk": false,
-              "notNull": false,
-              "autoIncrement": false,
-              "defaultValue": ""
-            },
-            {
-              "name": "role_id",
-              "type": "BIGINT",
-              "chnname": "系统角色ID",
-              "remark": "",
-              "pk": false,
-              "notNull": false,
-              "autoIncrement": false,
-              "defaultValue": ""
-            },
-            {
-              "name": "deleted",
-              "type": "DefaultString",
-              "remark": "",
-              "chnname": "是否删除"
-            },
-            {
-              "name": "creator",
-              "type": "DefaultString",
-              "remark": "",
-              "chnname": "创建人"
-            },
-            {
-              "name": "create_time",
-              "type": "DefaultString",
-              "remark": "",
-              "chnname": "创建时间"
-            },
-            {
-              "name": "editor",
-              "type": "DefaultString",
-              "remark": "",
-              "chnname": "编辑人"
-            },
-            {
-              "name": "edit_time",
-              "type": "DefaultString",
-              "remark": "",
-              "chnname": "编辑时间"
-            }
-          ],
-          "indexs": [],
-          "headers": [
-            {
-              "fieldName": "chnname",
-              "relationNoShow": false
-            },
-            {
-              "fieldName": "name",
-              "relationNoShow": false
-            },
-            {
-              "fieldName": "type",
-              "relationNoShow": false
-            },
-            {
-              "fieldName": "dataType",
-              "relationNoShow": true
-            },
-            {
-              "fieldName": "remark",
-              "relationNoShow": true
-            },
-            {
-              "fieldName": "pk",
-              "relationNoShow": false
-            },
-            {
-              "fieldName": "notNull",
-              "relationNoShow": true
-            },
-            {
-              "fieldName": "autoIncrement",
-              "relationNoShow": true
-            },
-            {
-              "fieldName": "defaultValue",
-              "relationNoShow": true
-            },
-            {
-              "fieldName": "relationNoShow",
-              "relationNoShow": true
-            },
-            {
-              "fieldName": "uiHint",
-              "relationNoShow": true
-            }
-          ]
-        },
-        {
-          "title": "sys_dict_group",
-          "chnname": "",
-          "fields": [
-            {
-              "name": "id",
-              "type": "BIGINT",
-              "chnname": "",
-              "remark": "",
-              "pk": true,
-              "notNull": true,
-              "autoIncrement": true,
-              "defaultValue": ""
-            },
-            {
-              "name": "name",
-              "type": "VARCHAR(64)",
-              "chnname": "",
-              "remark": "",
-              "pk": false,
-              "notNull": false,
-              "autoIncrement": false,
-              "defaultValue": ""
-            },
-            {
-              "name": "code",
-              "type": "VARCHAR(64)",
-              "chnname": "",
-              "remark": "",
-              "pk": false,
-              "notNull": false,
-              "autoIncrement": false,
-              "defaultValue": ""
-            },
-            {
-              "name": "deleted",
-              "type": "BIT(1)",
-              "chnname": "",
-              "remark": "",
-              "pk": false,
-              "notNull": false,
-              "autoIncrement": false,
-              "defaultValue": ""
-            },
-            {
-              "name": "disabled",
-              "type": "BIT(1)",
-              "chnname": "",
-              "remark": "",
-              "pk": false,
-              "notNull": false,
-              "autoIncrement": false,
-              "defaultValue": ""
-            },
-            {
-              "name": "creator",
-              "type": "VARCHAR(64)",
-              "chnname": "",
-              "remark": "",
-              "pk": false,
-              "notNull": false,
-              "autoIncrement": false,
-              "defaultValue": ""
-            },
-            {
-              "name": "editor",
-              "type": "VARCHAR(64)",
-              "chnname": "",
-              "remark": "",
-              "pk": false,
-              "notNull": false,
-              "autoIncrement": false,
-              "defaultValue": ""
-            },
-            {
-              "name": "edit_time",
-              "type": "DATETIME",
-              "chnname": "",
-              "remark": "",
-              "pk": false,
-              "notNull": false,
-              "autoIncrement": false,
-              "defaultValue": ""
-            },
-            {
-              "name": "create_time",
-              "type": "DATETIME",
-              "chnname": "",
-              "remark": "",
-              "pk": false,
-              "notNull": false,
-              "autoIncrement": false,
-              "defaultValue": ""
-            }
-          ]
-        },
-        {
-          "title": "sys_dict_item",
-          "chnname": "",
-          "fields": [
-            {
-              "name": "id",
-              "type": "BIGINT",
-              "chnname": "",
-              "remark": "",
-              "pk": true,
-              "notNull": true,
-              "autoIncrement": true,
-              "defaultValue": ""
-            },
-            {
-              "name": "name",
-              "type": "VARCHAR(64)",
-              "chnname": "",
-              "remark": "",
-              "pk": false,
-              "notNull": false,
-              "autoIncrement": false,
-              "defaultValue": ""
-            },
-            {
-              "name": "code",
-              "type": "VARCHAR(64)",
-              "chnname": "",
-              "remark": "",
-              "pk": false,
-              "notNull": false,
-              "autoIncrement": false,
-              "defaultValue": ""
-            },
-            {
-              "name": "group_id",
-              "type": "BIGINT",
-              "chnname": "",
-              "remark": "",
-              "pk": false,
-              "notNull": false,
-              "autoIncrement": false,
-              "defaultValue": ""
-            },
-            {
-              "name": "deleted",
-              "type": "BIT(1)",
-              "chnname": "",
-              "remark": "",
-              "pk": false,
-              "notNull": false,
-              "autoIncrement": false,
-              "defaultValue": ""
-            },
-            {
-              "name": "disabled",
-              "type": "BIT(1)",
-              "chnname": "",
-              "remark": "",
-              "pk": false,
-              "notNull": false,
-              "autoIncrement": false,
-              "defaultValue": ""
-            },
-            {
-              "name": "creator",
-              "type": "VARCHAR(64)",
-              "chnname": "",
-              "remark": "",
-              "pk": false,
-              "notNull": false,
-              "autoIncrement": false,
-              "defaultValue": ""
-            },
-            {
-              "name": "editor",
-              "type": "VARCHAR(64)",
-              "chnname": "",
-              "remark": "",
-              "pk": false,
-              "notNull": false,
-              "autoIncrement": false,
-              "defaultValue": ""
-            },
-            {
-              "name": "edit_time",
-              "type": "DATETIME",
-              "chnname": "",
-              "remark": "",
-              "pk": false,
-              "notNull": false,
-              "autoIncrement": false,
-              "defaultValue": ""
-            },
-            {
-              "name": "create_time",
-              "type": "DATETIME",
-              "chnname": "",
-              "remark": "",
-              "pk": false,
-              "notNull": false,
-              "autoIncrement": false,
-              "defaultValue": ""
-            }
-          ]
-        },
-        {
-          "title": "sys_log",
-          "chnname": "系统日志表",
-          "fields": [
-            {
-              "name": "id",
-              "type": "BIGINT",
-              "chnname": "主键ID",
-              "remark": "",
-              "pk": true,
-              "notNull": true,
-              "autoIncrement": true,
-              "defaultValue": ""
-            },
-            {
-              "name": "user_id",
-              "type": "DefaultString",
-              "remark": "",
-              "chnname": "系统用户ID"
-            },
-            {
-              "name": "username",
-              "type": "VARCHAR(64)",
-              "chnname": "用户名",
-              "remark": "",
-              "pk": false,
-              "notNull": false,
-              "autoIncrement": false,
-              "defaultValue": ""
-            },
-            {
-              "name": "ip",
-              "type": "VARCHAR(255)",
-              "chnname": "IP地址",
-              "remark": "",
-              "pk": false,
-              "notNull": false,
-              "autoIncrement": false,
-              "defaultValue": ""
-            },
-            {
-              "name": "url",
-              "type": "VARCHAR_1000",
-              "chnname": "访问链接",
-              "remark": "",
-              "pk": false,
-              "notNull": false,
-              "autoIncrement": false,
-              "defaultValue": ""
-            },
-            {
-              "name": "params",
-              "type": "TEXT",
-              "chnname": "访问参数",
-              "remark": "",
-              "pk": false,
-              "notNull": false,
-              "autoIncrement": false,
-              "defaultValue": ""
-            },
-            {
-              "name": "headers",
-              "type": "VARCHAR_4000",
-              "chnname": "头参数",
-              "remark": "",
-              "pk": false,
-              "notNull": false,
-              "autoIncrement": false,
-              "defaultValue": ""
-            },
-            {
-              "name": "result",
-              "type": "TEXT",
-              "chnname": "请求结果",
-              "remark": "",
-              "pk": false,
-              "notNull": false,
-              "autoIncrement": false,
-              "defaultValue": ""
-            },
-            {
-              "name": "class_name",
-              "type": "VARCHAR(255)",
-              "chnname": "访问类名",
-              "remark": "",
-              "pk": false,
-              "notNull": false,
-              "autoIncrement": false,
-              "defaultValue": ""
-            },
-            {
-              "name": "method_name",
-              "type": "VARCHAR(255)",
-              "chnname": "访问方法",
-              "remark": "",
-              "pk": false,
-              "notNull": false,
-              "autoIncrement": false,
-              "defaultValue": ""
-            },
-            {
-              "name": "os",
-              "type": "VARCHAR(64)",
-              "chnname": "操作系统",
-              "remark": "",
-              "pk": false,
-              "notNull": false,
-              "autoIncrement": false,
-              "defaultValue": ""
-            },
-            {
-              "name": "device",
-              "type": "VARCHAR(64)",
-              "chnname": "设备类型",
-              "remark": "",
-              "pk": false,
-              "notNull": false,
-              "autoIncrement": false,
-              "defaultValue": ""
-            },
-            {
-              "name": "browser",
-              "type": "VARCHAR(64)",
-              "chnname": "浏览器",
-              "remark": "",
-              "pk": false,
-              "notNull": false,
-              "autoIncrement": false,
-              "defaultValue": ""
-            },
-            {
-              "name": "execute_time",
-              "type": "BIGINT_19",
-              "chnname": "执行时间",
-              "remark": "",
-              "pk": false,
-              "notNull": false,
-              "autoIncrement": false,
-              "defaultValue": ""
-            },
-            {
-              "name": "deleted",
-              "type": "BIT(1)",
-              "chnname": "是否删除",
-              "remark": "",
-              "pk": false,
-              "notNull": false,
-              "autoIncrement": false,
-              "defaultValue": ""
-            },
-            {
-              "name": "creator",
-              "type": "VARCHAR(64)",
-              "chnname": "创建人",
-              "remark": "",
-              "pk": false,
-              "notNull": false,
-              "autoIncrement": false,
-              "defaultValue": ""
-            },
-            {
-              "name": "create_time",
-              "type": "DATETIME",
-              "chnname": "创建时间",
-              "remark": "",
-              "pk": false,
-              "notNull": false,
-              "autoIncrement": false,
-              "defaultValue": ""
-            },
-            {
-              "name": "editor",
-              "type": "VARCHAR(64)",
-              "chnname": "编辑人",
-              "remark": "",
-              "pk": false,
-              "notNull": false,
-              "autoIncrement": false,
-              "defaultValue": ""
-            },
-            {
-              "name": "edit_time",
-              "type": "DATETIME",
-              "chnname": "编辑时间",
-              "remark": "",
-              "pk": false,
-              "notNull": false,
-              "autoIncrement": false,
-              "defaultValue": ""
-            }
-          ],
-          "indexs": [],
-          "headers": [
-            {
-              "fieldName": "chnname",
-              "relationNoShow": false
-            },
-            {
-              "fieldName": "name",
-              "relationNoShow": false
-            },
-            {
-              "fieldName": "type",
-              "relationNoShow": false
-            },
-            {
-              "fieldName": "dataType",
-              "relationNoShow": true
-            },
-            {
-              "fieldName": "remark",
-              "relationNoShow": true
-            },
-            {
-              "fieldName": "pk",
-              "relationNoShow": false
-            },
-            {
-              "fieldName": "notNull",
-              "relationNoShow": true
-            },
-            {
-              "fieldName": "autoIncrement",
-              "relationNoShow": true
-            },
-            {
-              "fieldName": "defaultValue",
-              "relationNoShow": true
-            },
-            {
-              "fieldName": "relationNoShow",
-              "relationNoShow": true
-            },
-            {
-              "fieldName": "uiHint",
-              "relationNoShow": true
-            }
-          ]
-        },
-        {
-          "title": "sys_menu",
-          "chnname": "系统菜单表",
-          "fields": [
-            {
-              "name": "id",
-              "type": "BIGINT",
-              "chnname": "主键ID",
-              "remark": "",
-              "pk": true,
-              "notNull": true,
-              "autoIncrement": true,
-              "defaultValue": ""
-            },
-            {
-              "name": "parent_id",
-              "type": "BIGINT",
-              "chnname": "父级菜单ID",
-              "remark": "",
-              "pk": false,
-              "notNull": false,
-              "autoIncrement": false,
-              "defaultValue": ""
-            },
-            {
-              "name": "name",
-              "type": "VARCHAR(64)",
-              "chnname": "菜单名称",
-              "remark": "",
-              "pk": false,
-              "notNull": false,
-              "autoIncrement": false,
-              "defaultValue": ""
-            },
-            {
-              "name": "code",
-              "type": "VARCHAR(64)",
-              "chnname": "菜单编码",
-              "remark": "",
-              "pk": false,
-              "notNull": false,
-              "autoIncrement": false,
-              "defaultValue": ""
-            },
-            {
-              "name": "path",
-              "type": "VARCHAR(128)",
-              "chnname": "菜单路径",
-              "remark": "",
-              "pk": false,
-              "notNull": false,
-              "autoIncrement": false,
-              "defaultValue": ""
-            },
-            {
-              "name": "icon",
-              "type": "VARCHAR(64)",
-              "chnname": "菜单图标",
-              "remark": "",
-              "pk": false,
-              "notNull": false,
-              "autoIncrement": false,
-              "defaultValue": ""
-            },
-            {
-              "name": "sort",
-              "type": "BIGINT",
-              "chnname": "菜单顺序",
-              "remark": "",
-              "pk": false,
-              "notNull": false,
-              "autoIncrement": false,
-              "defaultValue": ""
-            },
-            {
-              "name": "node",
-              "type": "VARCHAR(128)",
-              "remark": "",
-              "chnname": "节点路径"
-            },
-            {
-              "name": "disabled",
-              "type": "BIT(1)",
-              "chnname": "是否禁用",
-              "remark": "",
-              "pk": false,
-              "notNull": false,
-              "autoIncrement": false,
-              "defaultValue": ""
-            },
-            {
-              "name": "deleted",
-              "type": "BIT(1)",
-              "chnname": "是否删除",
-              "remark": "",
-              "pk": false,
-              "notNull": false,
-              "autoIncrement": false,
-              "defaultValue": ""
-            },
-            {
-              "name": "creator",
-              "type": "VARCHAR(64)",
-              "chnname": "创建人",
-              "remark": "",
-              "pk": false,
-              "notNull": false,
-              "autoIncrement": false,
-              "defaultValue": ""
-            },
-            {
-              "name": "create_time",
-              "type": "DATETIME",
-              "chnname": "创建时间",
-              "remark": "",
-              "pk": false,
-              "notNull": false,
-              "autoIncrement": false,
-              "defaultValue": ""
-            },
-            {
-              "name": "editor",
-              "type": "VARCHAR(64)",
-              "chnname": "编辑人",
-              "remark": "",
-              "pk": false,
-              "notNull": false,
-              "autoIncrement": false,
-              "defaultValue": ""
-            },
-            {
-              "name": "edit_time",
-              "type": "DATETIME",
-              "chnname": "编辑时间",
-              "remark": "",
-              "pk": false,
-              "notNull": false,
-              "autoIncrement": false,
-              "defaultValue": ""
-            }
-          ],
-          "indexs": [],
-          "headers": [
-            {
-              "fieldName": "chnname",
-              "relationNoShow": false
-            },
-            {
-              "fieldName": "name",
-              "relationNoShow": false
-            },
-            {
-              "fieldName": "type",
-              "relationNoShow": false
-            },
-            {
-              "fieldName": "dataType",
-              "relationNoShow": true
-            },
-            {
-              "fieldName": "remark",
-              "relationNoShow": true
-            },
-            {
-              "fieldName": "pk",
-              "relationNoShow": false
-            },
-            {
-              "fieldName": "notNull",
-              "relationNoShow": true
-            },
-            {
-              "fieldName": "autoIncrement",
-              "relationNoShow": true
-            },
-            {
-              "fieldName": "defaultValue",
-              "relationNoShow": true
-            },
-            {
-              "fieldName": "relationNoShow",
-              "relationNoShow": true
-            },
-            {
-              "fieldName": "uiHint",
-              "relationNoShow": true
-            }
-          ]
-        },
-        {
-          "title": "sys_organization",
+          "title": "sys_third_token",
           "fields": [
             {
               "name": "id",
@@ -986,50 +17,47 @@
               "autoIncrement": true
             },
             {
-              "name": "parent_id",
-              "type": "BIGINT",
-              "remark": "",
-              "chnname": "父级ID",
-              "defaultValue": "NULL"
-            },
-            {
-              "name": "name",
-              "type": "VARCHAR(64)",
-              "remark": "",
-              "chnname": "名称",
-              "notNull": true
-            },
-            {
-              "name": "type",
+              "name": "platform",
               "type": "VARCHAR(32)",
               "remark": "",
-              "chnname": "类型：1-company，2-department，3-position",
-              "notNull": true
+              "chnname": "第三方平台"
             },
             {
-              "name": "node",
+              "name": "open_id",
+              "type": "VARCHAR(64)",
+              "remark": "",
+              "chnname": "第三方开放ID"
+            },
+            {
+              "name": "access_token",
               "type": "VARCHAR(128)",
               "remark": "",
-              "chnname": "节点路径",
-              "pk": false,
-              "notNull": false,
-              "defaultValue": "NULL"
+              "chnname": "access_token"
             },
             {
-              "name": "disabled",
-              "type": "BIT(1)",
+              "name": "expires_in",
+              "type": "BigInt",
               "remark": "",
-              "chnname": "是否禁用",
-              "defaultValue": "0",
-              "notNull": false
+              "chnname": "access_token过期时间"
+            },
+            {
+              "name": "refresh_token",
+              "type": "VARCHAR(128)",
+              "remark": "",
+              "chnname": "refresh_token"
+            },
+            {
+              "name": "refresh_token_expires_in",
+              "type": "BigInt",
+              "remark": "",
+              "chnname": "refresh_token过期时间"
             },
             {
               "name": "deleted",
               "type": "BIT(1)",
               "remark": "",
               "chnname": "是否删除：0-否，1-是",
-              "defaultValue": "0",
-              "notNull": false
+              "defaultValue": "0"
             },
             {
               "name": "creator",
@@ -1107,870 +135,7 @@
               "relationNoShow": true
             }
           ],
-          "chnname": "系统组织架构表"
-        },
-        {
-          "title": "sys_permission",
-          "chnname": "系统权限表",
-          "fields": [
-            {
-              "name": "id",
-              "type": "BIGINT",
-              "chnname": "主键ID",
-              "remark": "",
-              "pk": true,
-              "notNull": true,
-              "autoIncrement": true,
-              "defaultValue": ""
-            },
-            {
-              "name": "name",
-              "type": "VARCHAR(64)",
-              "chnname": "",
-              "remark": "",
-              "pk": false,
-              "notNull": false,
-              "autoIncrement": false,
-              "defaultValue": ""
-            },
-            {
-              "name": "code",
-              "type": "VARCHAR(64)",
-              "chnname": "",
-              "remark": "",
-              "pk": false,
-              "notNull": false,
-              "autoIncrement": false,
-              "defaultValue": ""
-            },
-            {
-              "name": "url",
-              "type": "VARCHAR_200",
-              "chnname": "访问链接",
-              "remark": "",
-              "pk": false,
-              "notNull": false,
-              "autoIncrement": false,
-              "defaultValue": ""
-            },
-            {
-              "name": "permit_all",
-              "type": "BIT(1)",
-              "chnname": "",
-              "remark": "",
-              "pk": false,
-              "notNull": false,
-              "autoIncrement": false,
-              "defaultValue": ""
-            },
-            {
-              "name": "deleted",
-              "type": "BIT(1)",
-              "chnname": "是否删除",
-              "remark": "",
-              "pk": false,
-              "notNull": false,
-              "autoIncrement": false,
-              "defaultValue": ""
-            },
-            {
-              "name": "disabled",
-              "type": "BIT(1)",
-              "chnname": "是否禁用",
-              "remark": "",
-              "pk": false,
-              "notNull": false,
-              "autoIncrement": false,
-              "defaultValue": ""
-            },
-            {
-              "name": "creator",
-              "type": "VARCHAR(64)",
-              "chnname": "创建人",
-              "remark": "",
-              "pk": false,
-              "notNull": false,
-              "autoIncrement": false,
-              "defaultValue": ""
-            },
-            {
-              "name": "create_time",
-              "type": "DATETIME",
-              "chnname": "创建时间",
-              "remark": "",
-              "pk": false,
-              "notNull": false,
-              "autoIncrement": false,
-              "defaultValue": ""
-            },
-            {
-              "name": "editor",
-              "type": "VARCHAR(64)",
-              "chnname": "编辑人",
-              "remark": "",
-              "pk": false,
-              "notNull": false,
-              "autoIncrement": false,
-              "defaultValue": ""
-            },
-            {
-              "name": "edit_time",
-              "type": "DATETIME",
-              "chnname": "编辑时间",
-              "remark": "",
-              "pk": false,
-              "notNull": false,
-              "autoIncrement": false,
-              "defaultValue": ""
-            }
-          ],
-          "indexs": [],
-          "headers": [
-            {
-              "fieldName": "chnname",
-              "relationNoShow": false
-            },
-            {
-              "fieldName": "name",
-              "relationNoShow": false
-            },
-            {
-              "fieldName": "type",
-              "relationNoShow": false
-            },
-            {
-              "fieldName": "dataType",
-              "relationNoShow": true
-            },
-            {
-              "fieldName": "remark",
-              "relationNoShow": true
-            },
-            {
-              "fieldName": "pk",
-              "relationNoShow": false
-            },
-            {
-              "fieldName": "notNull",
-              "relationNoShow": true
-            },
-            {
-              "fieldName": "autoIncrement",
-              "relationNoShow": true
-            },
-            {
-              "fieldName": "defaultValue",
-              "relationNoShow": true
-            },
-            {
-              "fieldName": "relationNoShow",
-              "relationNoShow": true
-            },
-            {
-              "fieldName": "uiHint",
-              "relationNoShow": true
-            }
-          ]
-        },
-        {
-          "title": "sys_role",
-          "chnname": "系统角色表",
-          "fields": [
-            {
-              "name": "id",
-              "type": "BIGINT",
-              "chnname": "主键ID",
-              "remark": "",
-              "pk": true,
-              "notNull": true,
-              "autoIncrement": true,
-              "defaultValue": ""
-            },
-            {
-              "name": "group_id",
-              "type": "BIGINT",
-              "chnname": "角色组ID",
-              "remark": "",
-              "pk": false,
-              "notNull": false,
-              "autoIncrement": false,
-              "defaultValue": ""
-            },
-            {
-              "name": "name",
-              "type": "VARCHAR(64)",
-              "chnname": "角色名称",
-              "remark": "",
-              "pk": false,
-              "notNull": false,
-              "autoIncrement": false,
-              "defaultValue": ""
-            },
-            {
-              "name": "code",
-              "type": "VARCHAR(64)",
-              "chnname": "角色编码",
-              "remark": "",
-              "pk": false,
-              "notNull": false,
-              "autoIncrement": false,
-              "defaultValue": ""
-            },
-            {
-              "name": "remark",
-              "type": "VARCHAR_200",
-              "chnname": "备注",
-              "remark": "",
-              "pk": false,
-              "notNull": false,
-              "autoIncrement": false,
-              "defaultValue": ""
-            },
-            {
-              "name": "disabled",
-              "type": "BIT(1)",
-              "chnname": "是否禁用",
-              "remark": "",
-              "pk": false,
-              "notNull": false,
-              "autoIncrement": false,
-              "defaultValue": ""
-            },
-            {
-              "name": "deleted",
-              "type": "BIT(1)",
-              "chnname": "是否删除",
-              "remark": "",
-              "pk": false,
-              "notNull": false,
-              "autoIncrement": false,
-              "defaultValue": ""
-            },
-            {
-              "name": "creator",
-              "type": "VARCHAR(64)",
-              "chnname": "创建人",
-              "remark": "",
-              "pk": false,
-              "notNull": false,
-              "autoIncrement": false,
-              "defaultValue": ""
-            },
-            {
-              "name": "create_time",
-              "type": "DATETIME",
-              "chnname": "创建时间",
-              "remark": "",
-              "pk": false,
-              "notNull": false,
-              "autoIncrement": false,
-              "defaultValue": ""
-            },
-            {
-              "name": "editor",
-              "type": "VARCHAR(64)",
-              "chnname": "编辑人",
-              "remark": "",
-              "pk": false,
-              "notNull": false,
-              "autoIncrement": false,
-              "defaultValue": ""
-            },
-            {
-              "name": "edit_time",
-              "type": "DATETIME",
-              "chnname": "编辑时间",
-              "remark": "",
-              "pk": false,
-              "notNull": false,
-              "autoIncrement": false,
-              "defaultValue": ""
-            }
-          ],
-          "indexs": [],
-          "headers": [
-            {
-              "fieldName": "chnname",
-              "relationNoShow": false
-            },
-            {
-              "fieldName": "name",
-              "relationNoShow": false
-            },
-            {
-              "fieldName": "type",
-              "relationNoShow": false
-            },
-            {
-              "fieldName": "dataType",
-              "relationNoShow": true
-            },
-            {
-              "fieldName": "remark",
-              "relationNoShow": true
-            },
-            {
-              "fieldName": "pk",
-              "relationNoShow": false
-            },
-            {
-              "fieldName": "notNull",
-              "relationNoShow": true
-            },
-            {
-              "fieldName": "autoIncrement",
-              "relationNoShow": true
-            },
-            {
-              "fieldName": "defaultValue",
-              "relationNoShow": true
-            },
-            {
-              "fieldName": "relationNoShow",
-              "relationNoShow": true
-            },
-            {
-              "fieldName": "uiHint",
-              "relationNoShow": true
-            }
-          ]
-        },
-        {
-          "title": "sys_user",
-          "chnname": "系统用户表",
-          "fields": [
-            {
-              "name": "id",
-              "type": "BIGINT",
-              "chnname": "自增主键",
-              "remark": "",
-              "pk": true,
-              "notNull": true,
-              "autoIncrement": true,
-              "defaultValue": ""
-            },
-            {
-              "name": "user_info_id",
-              "type": "BIGINT",
-              "remark": "",
-              "chnname": "用户信息ID"
-            },
-            {
-              "name": "username",
-              "type": "VARCHAR(64)",
-              "chnname": "账号",
-              "remark": "",
-              "pk": false,
-              "notNull": false,
-              "autoIncrement": false,
-              "defaultValue": ""
-            },
-            {
-              "name": "password",
-              "type": "VARCHAR(128)",
-              "chnname": "密码",
-              "remark": "",
-              "pk": false,
-              "notNull": false,
-              "autoIncrement": false,
-              "defaultValue": ""
-            },
-            {
-              "name": "phone",
-              "type": "VARCHAR(20)",
-              "chnname": "手机号码",
-              "remark": "",
-              "pk": false,
-              "notNull": false,
-              "autoIncrement": false,
-              "defaultValue": ""
-            },
-            {
-              "name": "email",
-              "type": "VARCHAR(64)",
-              "chnname": "邮箱",
-              "remark": "",
-              "pk": false,
-              "notNull": false,
-              "autoIncrement": false,
-              "defaultValue": ""
-            },
-            {
-              "name": "full_name",
-              "type": "VARCHAR(32)",
-              "remark": "",
-              "chnname": "用户姓名"
-            },
-            {
-              "name": "nickname",
-              "type": "VARCHAR(64)",
-              "remark": "",
-              "chnname": "用户昵称"
-            },
-            {
-              "name": "avatar",
-              "type": "VARCHAR(1024)",
-              "remark": "",
-              "chnname": "头像"
-            },
-            {
-              "name": "gender",
-              "type": "VARCHAR(32)",
-              "remark": "",
-              "chnname": "性别"
-            },
-            {
-              "name": "birthday",
-              "type": "DATETIME",
-              "remark": "",
-              "chnname": "生日"
-            },
-            {
-              "name": "sign",
-              "type": "VARCHAR(1024)",
-              "remark": "",
-              "chnname": "个性签名"
-            },
-            {
-              "name": "disabled",
-              "type": "BIT(1)",
-              "chnname": "是否禁用：0-否，1-是",
-              "remark": "",
-              "pk": false,
-              "notNull": false,
-              "autoIncrement": false,
-              "defaultValue": ""
-            },
-            {
-              "name": "untitled",
-              "type": "BIT(1)",
-              "remark": "",
-              "chnname": "是否注销"
-            },
-            {
-              "name": "deleted",
-              "type": "BIT(1)",
-              "chnname": "是否删除：0-否，1-是",
-              "remark": "",
-              "pk": false,
-              "notNull": false,
-              "autoIncrement": false,
-              "defaultValue": ""
-            },
-            {
-              "name": "creator",
-              "type": "VARCHAR(64)",
-              "chnname": "创建人",
-              "remark": "",
-              "pk": false,
-              "notNull": false,
-              "autoIncrement": false,
-              "defaultValue": ""
-            },
-            {
-              "name": "create_time",
-              "type": "DATETIME",
-              "chnname": "创建时间",
-              "remark": "",
-              "pk": false,
-              "notNull": false,
-              "autoIncrement": false,
-              "defaultValue": ""
-            },
-            {
-              "name": "editor",
-              "type": "VARCHAR(64)",
-              "chnname": "编辑人",
-              "remark": "",
-              "pk": false,
-              "notNull": false,
-              "autoIncrement": false,
-              "defaultValue": ""
-            },
-            {
-              "name": "edit_time",
-              "type": "DATETIME",
-              "chnname": "编辑时间",
-              "remark": "",
-              "pk": false,
-              "notNull": false,
-              "autoIncrement": false,
-              "defaultValue": ""
-            }
-          ],
-          "indexs": [],
-          "headers": [
-            {
-              "fieldName": "chnname",
-              "relationNoShow": false
-            },
-            {
-              "fieldName": "name",
-              "relationNoShow": false
-            },
-            {
-              "fieldName": "type",
-              "relationNoShow": false
-            },
-            {
-              "fieldName": "dataType",
-              "relationNoShow": true
-            },
-            {
-              "fieldName": "remark",
-              "relationNoShow": true
-            },
-            {
-              "fieldName": "pk",
-              "relationNoShow": false
-            },
-            {
-              "fieldName": "notNull",
-              "relationNoShow": true
-            },
-            {
-              "fieldName": "autoIncrement",
-              "relationNoShow": true
-            },
-            {
-              "fieldName": "defaultValue",
-              "relationNoShow": true
-            },
-            {
-              "fieldName": "relationNoShow",
-              "relationNoShow": true
-            },
-            {
-              "fieldName": "uiHint",
-              "relationNoShow": true
-            }
-          ]
-        },
-        {
-          "title": "t_demo",
-          "chnname": "测试用例表",
-          "fields": [
-            {
-              "name": "id",
-              "type": "BIGINT",
-              "chnname": "主键ID",
-              "remark": "",
-              "pk": true,
-              "notNull": true,
-              "autoIncrement": true,
-              "defaultValue": ""
-            },
-            {
-              "name": "username",
-              "type": "VARCHAR(64)",
-              "chnname": "用户名",
-              "remark": "",
-              "pk": false,
-              "notNull": true,
-              "autoIncrement": false,
-              "defaultValue": ""
-            },
-            {
-              "name": "password",
-              "type": "VARCHAR(64)",
-              "chnname": "密码",
-              "remark": "",
-              "pk": false,
-              "notNull": true,
-              "autoIncrement": false,
-              "defaultValue": ""
-            },
-            {
-              "name": "birthday",
-              "type": "DATETIME",
-              "chnname": "生日",
-              "remark": "",
-              "pk": false,
-              "notNull": false,
-              "autoIncrement": false,
-              "defaultValue": "NULL"
-            },
-            {
-              "name": "gender",
-              "type": "VARCHAR(8)",
-              "chnname": "性别",
-              "remark": "",
-              "pk": false,
-              "notNull": false,
-              "autoIncrement": false,
-              "defaultValue": "NULL"
-            },
-            {
-              "name": "deleted",
-              "type": "BIT(1)",
-              "chnname": "是否删除",
-              "remark": "",
-              "pk": false,
-              "notNull": false,
-              "autoIncrement": false,
-              "defaultValue": "0"
-            },
-            {
-              "name": "disabled",
-              "type": "BIT(1)",
-              "chnname": "是否禁用",
-              "remark": "",
-              "pk": false,
-              "notNull": false,
-              "autoIncrement": false,
-              "defaultValue": "0"
-            },
-            {
-              "name": "creator",
-              "type": "VARCHAR(32)",
-              "chnname": "创建人",
-              "remark": "",
-              "pk": false,
-              "notNull": false,
-              "autoIncrement": false,
-              "defaultValue": "NULL"
-            },
-            {
-              "name": "create_time",
-              "type": "DATETIME",
-              "chnname": "创建时间",
-              "remark": "",
-              "pk": false,
-              "notNull": false,
-              "autoIncrement": false,
-              "defaultValue": "CURRENT_TIMESTAMP"
-            },
-            {
-              "name": "editor",
-              "type": "VARCHAR(32)",
-              "chnname": "最后编辑人",
-              "remark": "",
-              "pk": false,
-              "notNull": false,
-              "autoIncrement": false,
-              "defaultValue": "NULL"
-            },
-            {
-              "name": "edit_time",
-              "type": "DATETIME",
-              "chnname": "编辑时间",
-              "remark": "",
-              "pk": false,
-              "notNull": false,
-              "autoIncrement": false,
-              "defaultValue": "CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP"
-            }
-          ],
-          "indexs": [],
-          "headers": [
-            {
-              "fieldName": "chnname",
-              "relationNoShow": false
-            },
-            {
-              "fieldName": "name",
-              "relationNoShow": false
-            },
-            {
-              "fieldName": "type",
-              "relationNoShow": false
-            },
-            {
-              "fieldName": "dataType",
-              "relationNoShow": true
-            },
-            {
-              "fieldName": "remark",
-              "relationNoShow": true
-            },
-            {
-              "fieldName": "pk",
-              "relationNoShow": false
-            },
-            {
-              "fieldName": "notNull",
-              "relationNoShow": true
-            },
-            {
-              "fieldName": "autoIncrement",
-              "relationNoShow": true
-            },
-            {
-              "fieldName": "defaultValue",
-              "relationNoShow": true
-            },
-            {
-              "fieldName": "relationNoShow",
-              "relationNoShow": true
-            },
-            {
-              "fieldName": "uiHint",
-              "relationNoShow": true
-            }
-          ]
-        },
-        {
-          "title": "t_github_user",
-          "chnname": "Github用户表",
-          "fields": [
-            {
-              "name": "id",
-              "type": "BIGINT",
-              "chnname": "github第三方ID",
-              "remark": "",
-              "pk": true,
-              "notNull": true,
-              "autoIncrement": false,
-              "defaultValue": ""
-            },
-            {
-              "name": "user_id",
-              "type": "BIGINT",
-              "chnname": "用户信息ID",
-              "remark": "",
-              "pk": false,
-              "notNull": false,
-              "autoIncrement": false,
-              "defaultValue": ""
-            },
-            {
-              "name": "username",
-              "type": "VARCHAR(32)",
-              "chnname": "用户名",
-              "remark": "",
-              "pk": false,
-              "notNull": false,
-              "autoIncrement": false,
-              "defaultValue": ""
-            },
-            {
-              "name": "avatar",
-              "type": "VARCHAR(255)",
-              "chnname": "头像",
-              "remark": "",
-              "pk": false,
-              "notNull": false,
-              "autoIncrement": false,
-              "defaultValue": ""
-            },
-            {
-              "name": "html_url",
-              "type": "VARCHAR(1024)",
-              "chnname": "主页链接",
-              "remark": "",
-              "pk": false,
-              "notNull": false,
-              "autoIncrement": false,
-              "defaultValue": ""
-            },
-            {
-              "name": "disabled",
-              "type": "BIT(1)",
-              "chnname": "是否禁用",
-              "remark": "",
-              "pk": false,
-              "notNull": false,
-              "autoIncrement": false,
-              "defaultValue": ""
-            },
-            {
-              "name": "deleted",
-              "type": "BIT(1)",
-              "chnname": "是否删除",
-              "remark": "",
-              "pk": false,
-              "notNull": false,
-              "autoIncrement": false,
-              "defaultValue": ""
-            },
-            {
-              "name": "creator",
-              "type": "VARCHAR(64)",
-              "chnname": "创建人",
-              "remark": "",
-              "pk": false,
-              "notNull": false,
-              "autoIncrement": false,
-              "defaultValue": ""
-            },
-            {
-              "name": "editor",
-              "type": "VARCHAR(64)",
-              "chnname": "编辑人",
-              "remark": "",
-              "pk": false,
-              "notNull": false,
-              "autoIncrement": false,
-              "defaultValue": ""
-            },
-            {
-              "name": "edit_time",
-              "type": "DATETIME",
-              "chnname": "编辑时间",
-              "remark": "",
-              "pk": false,
-              "notNull": false,
-              "autoIncrement": false,
-              "defaultValue": ""
-            },
-            {
-              "name": "create_time",
-              "type": "DATETIME",
-              "chnname": "创建时间",
-              "remark": "",
-              "pk": false,
-              "notNull": false,
-              "autoIncrement": false,
-              "defaultValue": ""
-            }
-          ],
-          "indexs": [],
-          "headers": [
-            {
-              "fieldName": "chnname",
-              "relationNoShow": false
-            },
-            {
-              "fieldName": "name",
-              "relationNoShow": false
-            },
-            {
-              "fieldName": "type",
-              "relationNoShow": false
-            },
-            {
-              "fieldName": "dataType",
-              "relationNoShow": true
-            },
-            {
-              "fieldName": "remark",
-              "relationNoShow": true
-            },
-            {
-              "fieldName": "pk",
-              "relationNoShow": false
-            },
-            {
-              "fieldName": "notNull",
-              "relationNoShow": true
-            },
-            {
-              "fieldName": "autoIncrement",
-              "relationNoShow": true
-            },
-            {
-              "fieldName": "defaultValue",
-              "relationNoShow": true
-            },
-            {
-              "fieldName": "relationNoShow",
-              "relationNoShow": true
-            },
-            {
-              "fieldName": "uiHint",
-              "relationNoShow": true
-            }
-          ]
+          "chnname": "第三方token记录表"
         },
         {
           "title": "t_qq_user",
@@ -2236,6 +401,2507 @@
           ]
         },
         {
+          "title": "t_github_user",
+          "chnname": "Github用户表",
+          "fields": [
+            {
+              "name": "id",
+              "type": "BIGINT",
+              "chnname": "github第三方ID",
+              "remark": "",
+              "pk": true,
+              "notNull": true,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "user_id",
+              "type": "BIGINT",
+              "chnname": "用户信息ID",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "username",
+              "type": "VARCHAR(32)",
+              "chnname": "用户名",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "avatar",
+              "type": "VARCHAR(255)",
+              "chnname": "头像",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "html_url",
+              "type": "VARCHAR(1024)",
+              "chnname": "主页链接",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "disabled",
+              "type": "BIT(1)",
+              "chnname": "是否禁用",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "deleted",
+              "type": "BIT(1)",
+              "chnname": "是否删除",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "creator",
+              "type": "VARCHAR(64)",
+              "chnname": "创建人",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "editor",
+              "type": "VARCHAR(64)",
+              "chnname": "编辑人",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "edit_time",
+              "type": "DATETIME",
+              "chnname": "编辑时间",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "create_time",
+              "type": "DATETIME",
+              "chnname": "创建时间",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            }
+          ],
+          "indexs": [],
+          "headers": [
+            {
+              "fieldName": "chnname",
+              "relationNoShow": false
+            },
+            {
+              "fieldName": "name",
+              "relationNoShow": false
+            },
+            {
+              "fieldName": "type",
+              "relationNoShow": false
+            },
+            {
+              "fieldName": "dataType",
+              "relationNoShow": true
+            },
+            {
+              "fieldName": "remark",
+              "relationNoShow": true
+            },
+            {
+              "fieldName": "pk",
+              "relationNoShow": false
+            },
+            {
+              "fieldName": "notNull",
+              "relationNoShow": true
+            },
+            {
+              "fieldName": "autoIncrement",
+              "relationNoShow": true
+            },
+            {
+              "fieldName": "defaultValue",
+              "relationNoShow": true
+            },
+            {
+              "fieldName": "relationNoShow",
+              "relationNoShow": true
+            },
+            {
+              "fieldName": "uiHint",
+              "relationNoShow": true
+            }
+          ]
+        },
+        {
+          "title": "sys_user",
+          "chnname": "系统用户表",
+          "fields": [
+            {
+              "name": "id",
+              "type": "BIGINT",
+              "chnname": "自增主键",
+              "remark": "",
+              "pk": true,
+              "notNull": true,
+              "autoIncrement": true,
+              "defaultValue": ""
+            },
+            {
+              "name": "org_id",
+              "type": "BIGINT",
+              "remark": "",
+              "chnname": "组织ID"
+            },
+            {
+              "name": "username",
+              "type": "VARCHAR(64)",
+              "chnname": "账号",
+              "remark": "唯一",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "password",
+              "type": "VARCHAR(128)",
+              "chnname": "密码",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "phone",
+              "type": "VARCHAR(20)",
+              "chnname": "手机号码",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "email",
+              "type": "VARCHAR(64)",
+              "chnname": "邮箱",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "full_name",
+              "type": "VARCHAR(32)",
+              "remark": "",
+              "chnname": "用户姓名"
+            },
+            {
+              "name": "nickname",
+              "type": "VARCHAR(64)",
+              "remark": "",
+              "chnname": "用户昵称"
+            },
+            {
+              "name": "avatar",
+              "type": "VARCHAR(1024)",
+              "remark": "",
+              "chnname": "头像"
+            },
+            {
+              "name": "gender",
+              "type": "VARCHAR(32)",
+              "remark": "",
+              "chnname": "性别"
+            },
+            {
+              "name": "birthday",
+              "type": "DATETIME",
+              "remark": "",
+              "chnname": "生日"
+            },
+            {
+              "name": "sign",
+              "type": "VARCHAR(1024)",
+              "remark": "",
+              "chnname": "个性签名"
+            },
+            {
+              "name": "disabled",
+              "type": "BIT(1)",
+              "chnname": "是否禁用：0-否，1-是",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "untitled",
+              "type": "BIT(1)",
+              "remark": "",
+              "chnname": "是否注销"
+            },
+            {
+              "name": "deleted",
+              "type": "BIT(1)",
+              "chnname": "是否删除：0-否，1-是",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "creator",
+              "type": "VARCHAR(64)",
+              "chnname": "创建人",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "create_time",
+              "type": "DATETIME",
+              "chnname": "创建时间",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "editor",
+              "type": "VARCHAR(64)",
+              "chnname": "编辑人",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "edit_time",
+              "type": "DATETIME",
+              "chnname": "编辑时间",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            }
+          ],
+          "indexs": [],
+          "headers": [
+            {
+              "fieldName": "chnname",
+              "relationNoShow": false
+            },
+            {
+              "fieldName": "name",
+              "relationNoShow": false
+            },
+            {
+              "fieldName": "type",
+              "relationNoShow": false
+            },
+            {
+              "fieldName": "dataType",
+              "relationNoShow": true
+            },
+            {
+              "fieldName": "remark",
+              "relationNoShow": true
+            },
+            {
+              "fieldName": "pk",
+              "relationNoShow": false
+            },
+            {
+              "fieldName": "notNull",
+              "relationNoShow": true
+            },
+            {
+              "fieldName": "autoIncrement",
+              "relationNoShow": true
+            },
+            {
+              "fieldName": "defaultValue",
+              "relationNoShow": true
+            },
+            {
+              "fieldName": "relationNoShow",
+              "relationNoShow": true
+            },
+            {
+              "fieldName": "uiHint",
+              "relationNoShow": true
+            }
+          ]
+        },
+        {
+          "title": "r_user_role",
+          "chnname": "系统用户与角色关联表",
+          "fields": [
+            {
+              "name": "id",
+              "type": "BIGINT",
+              "chnname": "主键ID",
+              "remark": "",
+              "pk": true,
+              "notNull": true,
+              "autoIncrement": true,
+              "defaultValue": ""
+            },
+            {
+              "name": "user_id",
+              "type": "BIGINT",
+              "chnname": "系统用户ID",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "role_id",
+              "type": "BIGINT",
+              "chnname": "系统角色ID",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "deleted",
+              "type": "DefaultString",
+              "remark": "",
+              "chnname": "是否删除"
+            },
+            {
+              "name": "creator",
+              "type": "DefaultString",
+              "remark": "",
+              "chnname": "创建人"
+            },
+            {
+              "name": "create_time",
+              "type": "DefaultString",
+              "remark": "",
+              "chnname": "创建时间"
+            },
+            {
+              "name": "editor",
+              "type": "DefaultString",
+              "remark": "",
+              "chnname": "编辑人"
+            },
+            {
+              "name": "edit_time",
+              "type": "DefaultString",
+              "remark": "",
+              "chnname": "编辑时间"
+            }
+          ],
+          "indexs": [],
+          "headers": [
+            {
+              "fieldName": "chnname",
+              "relationNoShow": false
+            },
+            {
+              "fieldName": "name",
+              "relationNoShow": false
+            },
+            {
+              "fieldName": "type",
+              "relationNoShow": false
+            },
+            {
+              "fieldName": "dataType",
+              "relationNoShow": true
+            },
+            {
+              "fieldName": "remark",
+              "relationNoShow": true
+            },
+            {
+              "fieldName": "pk",
+              "relationNoShow": false
+            },
+            {
+              "fieldName": "notNull",
+              "relationNoShow": true
+            },
+            {
+              "fieldName": "autoIncrement",
+              "relationNoShow": true
+            },
+            {
+              "fieldName": "defaultValue",
+              "relationNoShow": true
+            },
+            {
+              "fieldName": "relationNoShow",
+              "relationNoShow": true
+            },
+            {
+              "fieldName": "uiHint",
+              "relationNoShow": true
+            }
+          ]
+        },
+        {
+          "title": "sys_role",
+          "chnname": "系统角色表",
+          "fields": [
+            {
+              "name": "id",
+              "type": "BIGINT",
+              "chnname": "主键ID",
+              "remark": "",
+              "pk": true,
+              "notNull": true,
+              "autoIncrement": true,
+              "defaultValue": ""
+            },
+            {
+              "name": "group_id",
+              "type": "BIGINT",
+              "chnname": "角色组ID",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "name",
+              "type": "VARCHAR(64)",
+              "chnname": "角色名称",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "code",
+              "type": "VARCHAR(64)",
+              "chnname": "角色编码",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "remark",
+              "type": "VARCHAR_200",
+              "chnname": "备注",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "disabled",
+              "type": "BIT(1)",
+              "chnname": "是否禁用",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "deleted",
+              "type": "BIT(1)",
+              "chnname": "是否删除",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "creator",
+              "type": "VARCHAR(64)",
+              "chnname": "创建人",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "create_time",
+              "type": "DATETIME",
+              "chnname": "创建时间",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "editor",
+              "type": "VARCHAR(64)",
+              "chnname": "编辑人",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "edit_time",
+              "type": "DATETIME",
+              "chnname": "编辑时间",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            }
+          ],
+          "indexs": [],
+          "headers": [
+            {
+              "fieldName": "chnname",
+              "relationNoShow": false
+            },
+            {
+              "fieldName": "name",
+              "relationNoShow": false
+            },
+            {
+              "fieldName": "type",
+              "relationNoShow": false
+            },
+            {
+              "fieldName": "dataType",
+              "relationNoShow": true
+            },
+            {
+              "fieldName": "remark",
+              "relationNoShow": true
+            },
+            {
+              "fieldName": "pk",
+              "relationNoShow": false
+            },
+            {
+              "fieldName": "notNull",
+              "relationNoShow": true
+            },
+            {
+              "fieldName": "autoIncrement",
+              "relationNoShow": true
+            },
+            {
+              "fieldName": "defaultValue",
+              "relationNoShow": true
+            },
+            {
+              "fieldName": "relationNoShow",
+              "relationNoShow": true
+            },
+            {
+              "fieldName": "uiHint",
+              "relationNoShow": true
+            }
+          ]
+        },
+        {
+          "title": "r_role_menu",
+          "chnname": "系统角色与菜单关联表",
+          "fields": [
+            {
+              "name": "id",
+              "type": "BIGINT",
+              "chnname": "主键ID",
+              "remark": "",
+              "pk": true,
+              "notNull": true,
+              "autoIncrement": true,
+              "defaultValue": ""
+            },
+            {
+              "name": "role_id",
+              "type": "BIGINT",
+              "chnname": "角色ID",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "menu_id",
+              "type": "BIGINT",
+              "chnname": "菜单ID",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "deleted",
+              "type": "BIT(1)",
+              "remark": "",
+              "chnname": "是否删除"
+            },
+            {
+              "name": "creator",
+              "type": "VARCHAR(64)",
+              "remark": "",
+              "chnname": "创建人"
+            },
+            {
+              "name": "create_time",
+              "type": "DATETIME",
+              "remark": "",
+              "chnname": "创建时间"
+            },
+            {
+              "name": "editor",
+              "type": "VARCHAR(64)",
+              "remark": "",
+              "chnname": "编辑人"
+            },
+            {
+              "name": "edit_time",
+              "type": "DATETIME",
+              "remark": "",
+              "chnname": "编辑时间"
+            }
+          ],
+          "indexs": [],
+          "headers": [
+            {
+              "fieldName": "chnname",
+              "relationNoShow": false
+            },
+            {
+              "fieldName": "name",
+              "relationNoShow": false
+            },
+            {
+              "fieldName": "type",
+              "relationNoShow": false
+            },
+            {
+              "fieldName": "dataType",
+              "relationNoShow": true
+            },
+            {
+              "fieldName": "remark",
+              "relationNoShow": true
+            },
+            {
+              "fieldName": "pk",
+              "relationNoShow": false
+            },
+            {
+              "fieldName": "notNull",
+              "relationNoShow": true
+            },
+            {
+              "fieldName": "autoIncrement",
+              "relationNoShow": true
+            },
+            {
+              "fieldName": "defaultValue",
+              "relationNoShow": true
+            },
+            {
+              "fieldName": "relationNoShow",
+              "relationNoShow": true
+            },
+            {
+              "fieldName": "uiHint",
+              "relationNoShow": true
+            }
+          ]
+        },
+        {
+          "title": "sys_menu",
+          "chnname": "系统菜单表",
+          "fields": [
+            {
+              "name": "id",
+              "type": "BIGINT",
+              "chnname": "主键ID",
+              "remark": "",
+              "pk": true,
+              "notNull": true,
+              "autoIncrement": true,
+              "defaultValue": ""
+            },
+            {
+              "name": "parent_id",
+              "type": "BIGINT",
+              "chnname": "父级菜单ID",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "type",
+              "type": "TINYINT",
+              "remark": "",
+              "chnname": "类型：1-目录/2-菜单/3-按钮"
+            },
+            {
+              "name": "name",
+              "type": "VARCHAR(64)",
+              "chnname": "菜单名称",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "code",
+              "type": "VARCHAR(64)",
+              "chnname": "菜单编码",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "icon",
+              "type": "VARCHAR(64)",
+              "chnname": "菜单图标",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "sort",
+              "type": "BIGINT",
+              "chnname": "菜单顺序",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "path",
+              "type": "VARCHAR(128)",
+              "chnname": "菜单路径",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "perm_code",
+              "type": "VARCHAR(128)",
+              "remark": "",
+              "chnname": "权限编码"
+            },
+            {
+              "name": "disabled",
+              "type": "BIT(1)",
+              "chnname": "是否禁用",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "deleted",
+              "type": "BIT(1)",
+              "chnname": "是否删除",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "creator",
+              "type": "VARCHAR(64)",
+              "chnname": "创建人",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "create_time",
+              "type": "DATETIME",
+              "chnname": "创建时间",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "editor",
+              "type": "VARCHAR(64)",
+              "chnname": "编辑人",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "edit_time",
+              "type": "DATETIME",
+              "chnname": "编辑时间",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            }
+          ],
+          "indexs": [],
+          "headers": [
+            {
+              "fieldName": "chnname",
+              "relationNoShow": false
+            },
+            {
+              "fieldName": "name",
+              "relationNoShow": false
+            },
+            {
+              "fieldName": "type",
+              "relationNoShow": false
+            },
+            {
+              "fieldName": "dataType",
+              "relationNoShow": true
+            },
+            {
+              "fieldName": "remark",
+              "relationNoShow": true
+            },
+            {
+              "fieldName": "pk",
+              "relationNoShow": false
+            },
+            {
+              "fieldName": "notNull",
+              "relationNoShow": true
+            },
+            {
+              "fieldName": "autoIncrement",
+              "relationNoShow": true
+            },
+            {
+              "fieldName": "defaultValue",
+              "relationNoShow": true
+            },
+            {
+              "fieldName": "relationNoShow",
+              "relationNoShow": true
+            },
+            {
+              "fieldName": "uiHint",
+              "relationNoShow": true
+            }
+          ]
+        },
+        {
+          "title": "r_role_permission",
+          "chnname": "角色与权限关联表",
+          "fields": [
+            {
+              "name": "id",
+              "type": "BIGINT",
+              "chnname": "主键ID",
+              "remark": "",
+              "pk": true,
+              "notNull": true,
+              "autoIncrement": true,
+              "defaultValue": ""
+            },
+            {
+              "name": "role_id",
+              "type": "BIGINT",
+              "chnname": "角色ID",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "permission_id",
+              "type": "BIGINT",
+              "chnname": "权限ID",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "deleted",
+              "type": "BIT(1)",
+              "remark": "",
+              "chnname": "是否删除"
+            },
+            {
+              "name": "creator",
+              "type": "VARCHAR(64)",
+              "remark": "",
+              "chnname": "创建人"
+            },
+            {
+              "name": "create_time",
+              "type": "DATETIME",
+              "remark": "",
+              "chnname": "创建时间"
+            },
+            {
+              "name": "editor",
+              "type": "VARCHAR(64)",
+              "remark": "",
+              "chnname": "编辑人"
+            },
+            {
+              "name": "edit_time",
+              "type": "DATETIME",
+              "remark": "",
+              "chnname": "编辑时间"
+            }
+          ],
+          "indexs": [],
+          "headers": [
+            {
+              "fieldName": "chnname",
+              "relationNoShow": false
+            },
+            {
+              "fieldName": "name",
+              "relationNoShow": false
+            },
+            {
+              "fieldName": "type",
+              "relationNoShow": false
+            },
+            {
+              "fieldName": "dataType",
+              "relationNoShow": true
+            },
+            {
+              "fieldName": "remark",
+              "relationNoShow": true
+            },
+            {
+              "fieldName": "pk",
+              "relationNoShow": false
+            },
+            {
+              "fieldName": "notNull",
+              "relationNoShow": true
+            },
+            {
+              "fieldName": "autoIncrement",
+              "relationNoShow": true
+            },
+            {
+              "fieldName": "defaultValue",
+              "relationNoShow": true
+            },
+            {
+              "fieldName": "relationNoShow",
+              "relationNoShow": true
+            },
+            {
+              "fieldName": "uiHint",
+              "relationNoShow": true
+            }
+          ]
+        },
+        {
+          "title": "sys_permission",
+          "chnname": "系统权限表",
+          "fields": [
+            {
+              "name": "id",
+              "type": "BIGINT",
+              "chnname": "主键ID",
+              "remark": "",
+              "pk": true,
+              "notNull": true,
+              "autoIncrement": true,
+              "defaultValue": ""
+            },
+            {
+              "name": "name",
+              "type": "VARCHAR(64)",
+              "chnname": "权限名称",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "code",
+              "type": "VARCHAR(64)",
+              "chnname": "权限编码",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "path",
+              "type": "VARCHAR(255)",
+              "chnname": "访问路径",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "disabled",
+              "type": "BIT(1)",
+              "chnname": "是否禁用",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "deleted",
+              "type": "BIT(1)",
+              "chnname": "是否删除",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "creator",
+              "type": "VARCHAR(64)",
+              "chnname": "创建人",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "create_time",
+              "type": "DATETIME",
+              "chnname": "创建时间",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "editor",
+              "type": "VARCHAR(64)",
+              "chnname": "编辑人",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "edit_time",
+              "type": "DATETIME",
+              "chnname": "编辑时间",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            }
+          ],
+          "indexs": [],
+          "headers": [
+            {
+              "fieldName": "chnname",
+              "relationNoShow": false
+            },
+            {
+              "fieldName": "name",
+              "relationNoShow": false
+            },
+            {
+              "fieldName": "type",
+              "relationNoShow": false
+            },
+            {
+              "fieldName": "dataType",
+              "relationNoShow": true
+            },
+            {
+              "fieldName": "remark",
+              "relationNoShow": true
+            },
+            {
+              "fieldName": "pk",
+              "relationNoShow": false
+            },
+            {
+              "fieldName": "notNull",
+              "relationNoShow": true
+            },
+            {
+              "fieldName": "autoIncrement",
+              "relationNoShow": true
+            },
+            {
+              "fieldName": "defaultValue",
+              "relationNoShow": true
+            },
+            {
+              "fieldName": "relationNoShow",
+              "relationNoShow": true
+            },
+            {
+              "fieldName": "uiHint",
+              "relationNoShow": true
+            }
+          ]
+        },
+        {
+          "title": "sys_organization",
+          "fields": [
+            {
+              "name": "id",
+              "type": "BIGINT",
+              "remark": "",
+              "chnname": "主键ID",
+              "pk": true,
+              "notNull": true,
+              "autoIncrement": true
+            },
+            {
+              "name": "parent_id",
+              "type": "BIGINT",
+              "remark": "",
+              "chnname": "父级ID",
+              "defaultValue": "NULL"
+            },
+            {
+              "name": "name",
+              "type": "VARCHAR(64)",
+              "remark": "",
+              "chnname": "名称",
+              "notNull": true
+            },
+            {
+              "name": "type",
+              "type": "VARCHAR(32)",
+              "remark": "",
+              "chnname": "类型：1-company，2-department，3-group",
+              "notNull": true
+            },
+            {
+              "name": "node",
+              "type": "VARCHAR(128)",
+              "remark": "",
+              "chnname": "节点路径",
+              "pk": false,
+              "notNull": false,
+              "defaultValue": "NULL"
+            },
+            {
+              "name": "disabled",
+              "type": "BIT(1)",
+              "remark": "",
+              "chnname": "是否禁用",
+              "defaultValue": "0",
+              "notNull": false
+            },
+            {
+              "name": "deleted",
+              "type": "BIT(1)",
+              "remark": "",
+              "chnname": "是否删除：0-否，1-是",
+              "defaultValue": "0",
+              "notNull": false
+            },
+            {
+              "name": "creator",
+              "type": "VARCHAR(64)",
+              "remark": "",
+              "chnname": "创建人",
+              "defaultValue": "NULL"
+            },
+            {
+              "name": "create_time",
+              "type": "DATETIME",
+              "remark": "",
+              "chnname": "创建时间",
+              "defaultValue": "CURRENT_TIMESTAMP"
+            },
+            {
+              "name": "editor",
+              "type": "VARCHAR(64)",
+              "remark": "",
+              "chnname": "编辑人",
+              "defaultValue": "NULL"
+            },
+            {
+              "name": "edit_time",
+              "type": "DATETIME",
+              "remark": "",
+              "chnname": "编辑时间",
+              "defaultValue": "CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP"
+            }
+          ],
+          "indexs": [],
+          "headers": [
+            {
+              "fieldName": "chnname",
+              "relationNoShow": false
+            },
+            {
+              "fieldName": "name",
+              "relationNoShow": false
+            },
+            {
+              "fieldName": "type",
+              "relationNoShow": false
+            },
+            {
+              "fieldName": "dataType",
+              "relationNoShow": true
+            },
+            {
+              "fieldName": "remark",
+              "relationNoShow": true
+            },
+            {
+              "fieldName": "pk",
+              "relationNoShow": false
+            },
+            {
+              "fieldName": "notNull",
+              "relationNoShow": true
+            },
+            {
+              "fieldName": "autoIncrement",
+              "relationNoShow": true
+            },
+            {
+              "fieldName": "defaultValue",
+              "relationNoShow": true
+            },
+            {
+              "fieldName": "relationNoShow",
+              "relationNoShow": true
+            },
+            {
+              "fieldName": "uiHint",
+              "relationNoShow": true
+            }
+          ],
+          "chnname": "系统组织架构表"
+        },
+        {
+          "title": "sys_position",
+          "fields": [
+            {
+              "name": "id",
+              "type": "BIGINT",
+              "remark": "",
+              "chnname": "主键ID",
+              "pk": true,
+              "notNull": true,
+              "autoIncrement": true
+            },
+            {
+              "name": "name",
+              "type": "VARCHAR(64)",
+              "remark": "",
+              "chnname": "岗位名称",
+              "notNull": true
+            },
+            {
+              "name": "code",
+              "type": "VARCHAR(64)",
+              "remark": "",
+              "chnname": "岗位编码",
+              "notNull": true
+            },
+            {
+              "name": "sort",
+              "type": "INT",
+              "remark": "",
+              "chnname": "顺序"
+            },
+            {
+              "name": "disabled",
+              "type": "BIT(1)",
+              "remark": "",
+              "chnname": "是否禁用",
+              "defaultValue": "0"
+            },
+            {
+              "name": "deleted",
+              "type": "BIT(1)",
+              "remark": "",
+              "chnname": "是否删除：0-否，1-是",
+              "defaultValue": "0"
+            },
+            {
+              "name": "creator",
+              "type": "VARCHAR(64)",
+              "remark": "",
+              "chnname": "创建人",
+              "defaultValue": "NULL"
+            },
+            {
+              "name": "create_time",
+              "type": "DATETIME",
+              "remark": "",
+              "chnname": "创建时间",
+              "defaultValue": "CURRENT_TIMESTAMP"
+            },
+            {
+              "name": "editor",
+              "type": "VARCHAR(64)",
+              "remark": "",
+              "chnname": "编辑人",
+              "defaultValue": "NULL"
+            },
+            {
+              "name": "edit_time",
+              "type": "DATETIME",
+              "remark": "",
+              "chnname": "编辑时间",
+              "defaultValue": "CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP"
+            }
+          ],
+          "indexs": [],
+          "headers": [
+            {
+              "fieldName": "chnname",
+              "relationNoShow": false
+            },
+            {
+              "fieldName": "name",
+              "relationNoShow": false
+            },
+            {
+              "fieldName": "type",
+              "relationNoShow": false
+            },
+            {
+              "fieldName": "dataType",
+              "relationNoShow": true
+            },
+            {
+              "fieldName": "remark",
+              "relationNoShow": true
+            },
+            {
+              "fieldName": "pk",
+              "relationNoShow": false
+            },
+            {
+              "fieldName": "notNull",
+              "relationNoShow": true
+            },
+            {
+              "fieldName": "autoIncrement",
+              "relationNoShow": true
+            },
+            {
+              "fieldName": "defaultValue",
+              "relationNoShow": true
+            },
+            {
+              "fieldName": "relationNoShow",
+              "relationNoShow": true
+            },
+            {
+              "fieldName": "uiHint",
+              "relationNoShow": true
+            }
+          ],
+          "chnname": "岗位信息表"
+        },
+        {
+          "title": "sys_dict_group",
+          "chnname": "系统字典组",
+          "fields": [
+            {
+              "name": "id",
+              "type": "BIGINT",
+              "chnname": "主键ID",
+              "remark": "",
+              "pk": true,
+              "notNull": true,
+              "autoIncrement": true,
+              "defaultValue": ""
+            },
+            {
+              "name": "name",
+              "type": "VARCHAR(64)",
+              "chnname": "名称",
+              "remark": "",
+              "pk": false,
+              "notNull": true,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "code",
+              "type": "VARCHAR(64)",
+              "chnname": "编码",
+              "remark": "",
+              "pk": false,
+              "notNull": true,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "sort",
+              "type": "TINYINT",
+              "remark": "",
+              "chnname": "顺序"
+            },
+            {
+              "name": "deleted",
+              "type": "BIT(1)",
+              "chnname": "是否删除",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": "0"
+            },
+            {
+              "name": "creator",
+              "type": "VARCHAR(64)",
+              "chnname": "创建人",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": "NULL"
+            },
+            {
+              "name": "create_time",
+              "type": "DATETIME",
+              "chnname": "创建时间",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": "CURRENT_TIMESTAMP"
+            },
+            {
+              "name": "editor",
+              "type": "VARCHAR(64)",
+              "chnname": "编辑人",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": "NULL"
+            },
+            {
+              "name": "edit_time",
+              "type": "DATETIME",
+              "chnname": "编辑时间",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": "CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP"
+            }
+          ],
+          "indexs": [],
+          "headers": [
+            {
+              "fieldName": "chnname",
+              "relationNoShow": false
+            },
+            {
+              "fieldName": "name",
+              "relationNoShow": false
+            },
+            {
+              "fieldName": "type",
+              "relationNoShow": false
+            },
+            {
+              "fieldName": "dataType",
+              "relationNoShow": true
+            },
+            {
+              "fieldName": "remark",
+              "relationNoShow": true
+            },
+            {
+              "fieldName": "pk",
+              "relationNoShow": false
+            },
+            {
+              "fieldName": "notNull",
+              "relationNoShow": true
+            },
+            {
+              "fieldName": "autoIncrement",
+              "relationNoShow": true
+            },
+            {
+              "fieldName": "defaultValue",
+              "relationNoShow": true
+            },
+            {
+              "fieldName": "relationNoShow",
+              "relationNoShow": true
+            },
+            {
+              "fieldName": "uiHint",
+              "relationNoShow": true
+            }
+          ]
+        },
+        {
+          "title": "sys_dict_item",
+          "chnname": "系统字典项",
+          "fields": [
+            {
+              "name": "id",
+              "type": "BIGINT",
+              "chnname": "主键ID",
+              "remark": "",
+              "pk": true,
+              "notNull": true,
+              "autoIncrement": true,
+              "defaultValue": ""
+            },
+            {
+              "name": "group_id",
+              "type": "BIGINT",
+              "chnname": "字典组ID",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "name",
+              "type": "VARCHAR(64)",
+              "chnname": "名称",
+              "remark": "",
+              "pk": false,
+              "notNull": true,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "code",
+              "type": "VARCHAR(64)",
+              "chnname": "编码",
+              "remark": "",
+              "pk": false,
+              "notNull": true,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "sort",
+              "type": "TINYINT",
+              "remark": "",
+              "chnname": "顺序"
+            },
+            {
+              "name": "selected",
+              "type": "BIT(1)",
+              "remark": "",
+              "chnname": "是否默认选中",
+              "defaultValue": "0"
+            },
+            {
+              "name": "deleted",
+              "type": "BIT(1)",
+              "chnname": "是否删除",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": "0"
+            },
+            {
+              "name": "creator",
+              "type": "VARCHAR(64)",
+              "chnname": "创建人",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": "NULL"
+            },
+            {
+              "name": "create_time",
+              "type": "DATETIME",
+              "chnname": "创建时间",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": "CURRENT_TIMESTAMP"
+            },
+            {
+              "name": "editor",
+              "type": "VARCHAR(64)",
+              "chnname": "编辑人",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": "NULL"
+            },
+            {
+              "name": "edit_time",
+              "type": "DATETIME",
+              "chnname": "编辑时间",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": "CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP"
+            }
+          ],
+          "indexs": [],
+          "headers": [
+            {
+              "fieldName": "chnname",
+              "relationNoShow": false
+            },
+            {
+              "fieldName": "name",
+              "relationNoShow": false
+            },
+            {
+              "fieldName": "type",
+              "relationNoShow": false
+            },
+            {
+              "fieldName": "dataType",
+              "relationNoShow": true
+            },
+            {
+              "fieldName": "remark",
+              "relationNoShow": true
+            },
+            {
+              "fieldName": "pk",
+              "relationNoShow": false
+            },
+            {
+              "fieldName": "notNull",
+              "relationNoShow": true
+            },
+            {
+              "fieldName": "autoIncrement",
+              "relationNoShow": true
+            },
+            {
+              "fieldName": "defaultValue",
+              "relationNoShow": true
+            },
+            {
+              "fieldName": "relationNoShow",
+              "relationNoShow": true
+            },
+            {
+              "fieldName": "uiHint",
+              "relationNoShow": true
+            }
+          ]
+        },
+        {
+          "title": "sys_config",
+          "fields": [
+            {
+              "name": "id",
+              "type": "BIGINT",
+              "remark": "",
+              "chnname": "主键ID",
+              "pk": true,
+              "notNull": true,
+              "autoIncrement": true
+            },
+            {
+              "name": "name",
+              "type": "VARCHAR(64)",
+              "remark": "",
+              "chnname": "参数名称",
+              "notNull": true
+            },
+            {
+              "name": "code",
+              "type": "VARCHAR(64)",
+              "remark": "",
+              "chnname": "参数编码",
+              "notNull": true
+            },
+            {
+              "name": "value",
+              "type": "VARCHAR(64)",
+              "remark": "",
+              "chnname": "参数值",
+              "notNull": true
+            },
+            {
+              "name": "deleted",
+              "type": "BIT(1)",
+              "remark": "",
+              "chnname": "是否删除：0-否，1-是",
+              "defaultValue": "0"
+            },
+            {
+              "name": "creator",
+              "type": "VARCHAR(64)",
+              "remark": "",
+              "chnname": "创建人",
+              "defaultValue": "NULL"
+            },
+            {
+              "name": "create_time",
+              "type": "DATETIME",
+              "remark": "",
+              "chnname": "创建时间",
+              "defaultValue": "CURRENT_TIMESTAMP"
+            },
+            {
+              "name": "editor",
+              "type": "VARCHAR(64)",
+              "remark": "",
+              "chnname": "编辑人",
+              "defaultValue": "NULL"
+            },
+            {
+              "name": "edit_time",
+              "type": "DATETIME",
+              "remark": "",
+              "chnname": "编辑时间",
+              "defaultValue": "CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP"
+            }
+          ],
+          "indexs": [],
+          "headers": [
+            {
+              "fieldName": "chnname",
+              "relationNoShow": false
+            },
+            {
+              "fieldName": "name",
+              "relationNoShow": false
+            },
+            {
+              "fieldName": "type",
+              "relationNoShow": false
+            },
+            {
+              "fieldName": "dataType",
+              "relationNoShow": true
+            },
+            {
+              "fieldName": "remark",
+              "relationNoShow": true
+            },
+            {
+              "fieldName": "pk",
+              "relationNoShow": false
+            },
+            {
+              "fieldName": "notNull",
+              "relationNoShow": true
+            },
+            {
+              "fieldName": "autoIncrement",
+              "relationNoShow": true
+            },
+            {
+              "fieldName": "defaultValue",
+              "relationNoShow": true
+            },
+            {
+              "fieldName": "relationNoShow",
+              "relationNoShow": true
+            },
+            {
+              "fieldName": "uiHint",
+              "relationNoShow": true
+            }
+          ],
+          "chnname": "系统参数配置表"
+        },
+        {
+          "title": "sys_log",
+          "chnname": "系统日志表",
+          "fields": [
+            {
+              "name": "id",
+              "type": "BIGINT",
+              "chnname": "主键ID",
+              "remark": "",
+              "pk": true,
+              "notNull": true,
+              "autoIncrement": true,
+              "defaultValue": ""
+            },
+            {
+              "name": "user_id",
+              "type": "DefaultString",
+              "remark": "",
+              "chnname": "系统用户ID"
+            },
+            {
+              "name": "username",
+              "type": "VARCHAR(64)",
+              "chnname": "用户名",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "ip",
+              "type": "VARCHAR(255)",
+              "chnname": "IP地址",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "url",
+              "type": "VARCHAR_1000",
+              "chnname": "访问链接",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "params",
+              "type": "TEXT",
+              "chnname": "访问参数",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "headers",
+              "type": "VARCHAR(4000)",
+              "chnname": "头参数",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "result",
+              "type": "TEXT",
+              "chnname": "请求结果",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "class_name",
+              "type": "VARCHAR(255)",
+              "chnname": "访问类名",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "method_name",
+              "type": "VARCHAR(255)",
+              "chnname": "访问方法",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "os",
+              "type": "VARCHAR(64)",
+              "chnname": "操作系统",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "device",
+              "type": "VARCHAR(64)",
+              "chnname": "设备类型",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "browser",
+              "type": "VARCHAR(64)",
+              "chnname": "浏览器",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "execute_time",
+              "type": "BIGINT_19",
+              "chnname": "执行时间",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "deleted",
+              "type": "BIT(1)",
+              "chnname": "是否删除",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "creator",
+              "type": "VARCHAR(64)",
+              "chnname": "创建人",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "create_time",
+              "type": "DATETIME",
+              "chnname": "创建时间",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "editor",
+              "type": "VARCHAR(64)",
+              "chnname": "编辑人",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "edit_time",
+              "type": "DATETIME",
+              "chnname": "编辑时间",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": ""
+            }
+          ],
+          "indexs": [],
+          "headers": [
+            {
+              "fieldName": "chnname",
+              "relationNoShow": false
+            },
+            {
+              "fieldName": "name",
+              "relationNoShow": false
+            },
+            {
+              "fieldName": "type",
+              "relationNoShow": false
+            },
+            {
+              "fieldName": "dataType",
+              "relationNoShow": true
+            },
+            {
+              "fieldName": "remark",
+              "relationNoShow": true
+            },
+            {
+              "fieldName": "pk",
+              "relationNoShow": false
+            },
+            {
+              "fieldName": "notNull",
+              "relationNoShow": true
+            },
+            {
+              "fieldName": "autoIncrement",
+              "relationNoShow": true
+            },
+            {
+              "fieldName": "defaultValue",
+              "relationNoShow": true
+            },
+            {
+              "fieldName": "relationNoShow",
+              "relationNoShow": true
+            },
+            {
+              "fieldName": "uiHint",
+              "relationNoShow": true
+            }
+          ]
+        },
+        {
+          "title": "sys_module",
+          "fields": [
+            {
+              "name": "id",
+              "type": "BIGINT",
+              "remark": "",
+              "chnname": "主键ID",
+              "pk": true,
+              "notNull": true,
+              "autoIncrement": true
+            },
+            {
+              "name": "deleted",
+              "type": "BIT(1)",
+              "remark": "",
+              "chnname": "是否删除：0-否，1-是",
+              "defaultValue": "0"
+            },
+            {
+              "name": "creator",
+              "type": "VARCHAR(64)",
+              "remark": "",
+              "chnname": "创建人",
+              "defaultValue": "NULL"
+            },
+            {
+              "name": "create_time",
+              "type": "DATETIME",
+              "remark": "",
+              "chnname": "创建时间",
+              "defaultValue": "CURRENT_TIMESTAMP"
+            },
+            {
+              "name": "editor",
+              "type": "VARCHAR(64)",
+              "remark": "",
+              "chnname": "编辑人",
+              "defaultValue": "NULL"
+            },
+            {
+              "name": "edit_time",
+              "type": "DATETIME",
+              "remark": "",
+              "chnname": "编辑时间",
+              "defaultValue": "CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP"
+            }
+          ],
+          "indexs": [],
+          "headers": [
+            {
+              "fieldName": "chnname",
+              "relationNoShow": false
+            },
+            {
+              "fieldName": "name",
+              "relationNoShow": false
+            },
+            {
+              "fieldName": "type",
+              "relationNoShow": false
+            },
+            {
+              "fieldName": "dataType",
+              "relationNoShow": true
+            },
+            {
+              "fieldName": "remark",
+              "relationNoShow": true
+            },
+            {
+              "fieldName": "pk",
+              "relationNoShow": false
+            },
+            {
+              "fieldName": "notNull",
+              "relationNoShow": true
+            },
+            {
+              "fieldName": "autoIncrement",
+              "relationNoShow": true
+            },
+            {
+              "fieldName": "defaultValue",
+              "relationNoShow": true
+            },
+            {
+              "fieldName": "relationNoShow",
+              "relationNoShow": true
+            },
+            {
+              "fieldName": "uiHint",
+              "relationNoShow": true
+            }
+          ],
+          "chnname": "系统模块表"
+        },
+        {
+          "title": "t_demo",
+          "chnname": "测试用例表",
+          "fields": [
+            {
+              "name": "id",
+              "type": "BIGINT",
+              "chnname": "主键ID",
+              "remark": "",
+              "pk": true,
+              "notNull": true,
+              "autoIncrement": true,
+              "defaultValue": ""
+            },
+            {
+              "name": "username",
+              "type": "VARCHAR(64)",
+              "chnname": "用户名",
+              "remark": "",
+              "pk": false,
+              "notNull": true,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "password",
+              "type": "VARCHAR(64)",
+              "chnname": "密码",
+              "remark": "",
+              "pk": false,
+              "notNull": true,
+              "autoIncrement": false,
+              "defaultValue": ""
+            },
+            {
+              "name": "birthday",
+              "type": "DATETIME",
+              "chnname": "生日",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": "NULL"
+            },
+            {
+              "name": "gender",
+              "type": "VARCHAR(8)",
+              "chnname": "性别",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": "NULL"
+            },
+            {
+              "name": "deleted",
+              "type": "BIT(1)",
+              "chnname": "是否删除",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": "0"
+            },
+            {
+              "name": "disabled",
+              "type": "BIT(1)",
+              "chnname": "是否禁用",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": "0"
+            },
+            {
+              "name": "creator",
+              "type": "VARCHAR(32)",
+              "chnname": "创建人",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": "NULL"
+            },
+            {
+              "name": "create_time",
+              "type": "DATETIME",
+              "chnname": "创建时间",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": "CURRENT_TIMESTAMP"
+            },
+            {
+              "name": "editor",
+              "type": "VARCHAR(32)",
+              "chnname": "最后编辑人",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": "NULL"
+            },
+            {
+              "name": "edit_time",
+              "type": "DATETIME",
+              "chnname": "编辑时间",
+              "remark": "",
+              "pk": false,
+              "notNull": false,
+              "autoIncrement": false,
+              "defaultValue": "CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP"
+            }
+          ],
+          "indexs": [
+            {
+              "name": "index_username",
+              "isUnique": true,
+              "fields": [
+                "username"
+              ]
+            }
+          ],
+          "headers": [
+            {
+              "fieldName": "chnname",
+              "relationNoShow": false
+            },
+            {
+              "fieldName": "name",
+              "relationNoShow": false
+            },
+            {
+              "fieldName": "type",
+              "relationNoShow": false
+            },
+            {
+              "fieldName": "dataType",
+              "relationNoShow": true
+            },
+            {
+              "fieldName": "remark",
+              "relationNoShow": true
+            },
+            {
+              "fieldName": "pk",
+              "relationNoShow": false
+            },
+            {
+              "fieldName": "notNull",
+              "relationNoShow": true
+            },
+            {
+              "fieldName": "autoIncrement",
+              "relationNoShow": true
+            },
+            {
+              "fieldName": "defaultValue",
+              "relationNoShow": true
+            },
+            {
+              "fieldName": "relationNoShow",
+              "relationNoShow": true
+            },
+            {
+              "fieldName": "uiHint",
+              "relationNoShow": true
+            }
+          ]
+        },
+        {
+          "title": "t_area",
+          "fields": [
+            {
+              "name": "type",
+              "type": "CHAR(1)",
+              "remark": "",
+              "chnname": "类型：1-省/直辖市，2-市/自治州，3-区/县"
+            },
+            {
+              "name": "code",
+              "type": "CHAR(12)",
+              "remark": "",
+              "chnname": "编码",
+              "pk": true,
+              "notNull": true
+            },
+            {
+              "name": "name",
+              "type": "VARCHAR(32)",
+              "remark": "",
+              "chnname": "名称"
+            },
+            {
+              "name": "parent_code",
+              "type": "CHAR(12)",
+              "remark": "",
+              "chnname": "上级编码"
+            },
+            {
+              "name": "short_code",
+              "type": "VARCHAR(12)",
+              "remark": "",
+              "chnname": "编码短码"
+            },
+            {
+              "name": "catalog",
+              "type": "VARCHAR(32)",
+              "remark": "",
+              "chnname": ""
+            },
+            {
+              "name": "sub",
+              "type": "SMALLINT(6)",
+              "remark": "",
+              "chnname": ""
+            }
+          ],
+          "indexs": [],
+          "headers": [
+            {
+              "fieldName": "chnname",
+              "relationNoShow": false
+            },
+            {
+              "fieldName": "name",
+              "relationNoShow": false
+            },
+            {
+              "fieldName": "type",
+              "relationNoShow": false
+            },
+            {
+              "fieldName": "dataType",
+              "relationNoShow": true
+            },
+            {
+              "fieldName": "remark",
+              "relationNoShow": true
+            },
+            {
+              "fieldName": "pk",
+              "relationNoShow": false
+            },
+            {
+              "fieldName": "notNull",
+              "relationNoShow": true
+            },
+            {
+              "fieldName": "autoIncrement",
+              "relationNoShow": true
+            },
+            {
+              "fieldName": "defaultValue",
+              "relationNoShow": true
+            },
+            {
+              "fieldName": "relationNoShow",
+              "relationNoShow": true
+            },
+            {
+              "fieldName": "uiHint",
+              "relationNoShow": true
+            }
+          ],
+          "chnname": "区域表"
+        },
+        {
           "title": "t_user_info",
           "fields": [
             {
@@ -2362,9 +3028,173 @@
             }
           ],
           "chnname": "用户信息表(废弃)"
-        },
+        }
+      ],
+      "graphCanvas": {
+        "nodes": [
+          {
+            "shape": "table",
+            "title": "sys_user",
+            "moduleName": false,
+            "x": 260,
+            "y": -90,
+            "id": "dcab35b1"
+          },
+          {
+            "shape": "table",
+            "title": "sys_log",
+            "moduleName": false,
+            "x": -260,
+            "y": 680,
+            "id": "efba52b4"
+          },
+          {
+            "shape": "table",
+            "title": "t_user_info",
+            "moduleName": false,
+            "x": 260,
+            "y": -460,
+            "id": "9ab4dc70"
+          },
+          {
+            "shape": "table",
+            "title": "sys_third_token",
+            "moduleName": false,
+            "x": -200,
+            "y": -460,
+            "id": "2ec3a10a"
+          },
+          {
+            "shape": "table",
+            "title": "t_qq_user",
+            "moduleName": false,
+            "x": -190,
+            "y": -70,
+            "id": "f3adc08d"
+          },
+          {
+            "shape": "table",
+            "title": "t_github_user",
+            "moduleName": false,
+            "x": -260,
+            "y": 300,
+            "id": "785b80d3"
+          },
+          {
+            "shape": "table",
+            "title": "r_user_role",
+            "moduleName": false,
+            "x": 600,
+            "y": -200,
+            "id": "628a0469"
+          },
+          {
+            "shape": "table",
+            "title": "sys_role",
+            "moduleName": false,
+            "x": 610,
+            "y": 40,
+            "id": "325ae8ba"
+          },
+          {
+            "shape": "table",
+            "title": "r_role_menu",
+            "moduleName": false,
+            "x": 610,
+            "y": 290,
+            "id": "34bd1e3f"
+          },
+          {
+            "shape": "table",
+            "title": "sys_organization",
+            "moduleName": false,
+            "x": 190,
+            "y": 300,
+            "id": "efdf8758"
+          },
+          {
+            "shape": "table",
+            "title": "sys_menu",
+            "moduleName": false,
+            "x": 660,
+            "y": 580,
+            "id": "2a86d39e"
+          },
+          {
+            "shape": "table",
+            "title": "t_area",
+            "moduleName": false,
+            "x": -190,
+            "y": 1040,
+            "id": "fae2d852"
+          },
+          {
+            "shape": "table",
+            "title": "t_demo",
+            "moduleName": false,
+            "x": 240,
+            "y": 1170,
+            "id": "6140a1b9"
+          },
+          {
+            "shape": "table",
+            "title": "sys_config",
+            "moduleName": false,
+            "x": 130,
+            "y": 820,
+            "id": "111cc08f"
+          },
+          {
+            "shape": "table",
+            "title": "sys_position",
+            "moduleName": false,
+            "x": 130,
+            "y": 570,
+            "id": "64a937a3"
+          },
+          {
+            "shape": "table",
+            "title": "sys_dict_item",
+            "moduleName": false,
+            "x": 620,
+            "y": 1150,
+            "id": "ed673073"
+          },
+          {
+            "shape": "table",
+            "title": "sys_dict_group",
+            "moduleName": false,
+            "x": 610,
+            "y": 880,
+            "id": "a6345512"
+          },
+          {
+            "shape": "table",
+            "title": "sys_permission",
+            "moduleName": false,
+            "x": 1270,
+            "y": 30,
+            "id": "87c7f00b"
+          },
+          {
+            "shape": "table",
+            "title": "r_role_permission",
+            "moduleName": false,
+            "x": 930,
+            "y": 220,
+            "id": "79993423"
+          }
+        ],
+        "edges": []
+      },
+      "associations": []
+    },
+    {
+      "name": "博客模块",
+      "chnname": "blog",
+      "entities": [
         {
-          "title": "sys_third_token",
+          "title": "blog_info",
           "fields": [
             {
               "name": "id",
@@ -2374,42 +3204,6 @@
               "pk": true,
               "notNull": true,
               "autoIncrement": true
-            },
-            {
-              "name": "platform",
-              "type": "VARCHAR(32)",
-              "remark": "",
-              "chnname": "第三方平台"
-            },
-            {
-              "name": "open_id",
-              "type": "VARCHAR(64)",
-              "remark": "",
-              "chnname": "第三方开放ID"
-            },
-            {
-              "name": "access_token",
-              "type": "VARCHAR(128)",
-              "remark": "",
-              "chnname": "access_token"
-            },
-            {
-              "name": "expires_in",
-              "type": "BigInt",
-              "remark": "",
-              "chnname": "access_token过期时间"
-            },
-            {
-              "name": "refresh_token",
-              "type": "VARCHAR(128)",
-              "remark": "",
-              "chnname": "refresh_token"
-            },
-            {
-              "name": "refresh_token_expires_in",
-              "type": "BigInt",
-              "remark": "",
-              "chnname": "refresh_token过期时间"
             },
             {
               "name": "deleted",
@@ -2494,125 +3288,1179 @@
               "relationNoShow": true
             }
           ],
-          "chnname": "第三方token记录表"
+          "chnname": "博客文章表"
+        },
+        {
+          "title": "blog_comment",
+          "fields": [
+            {
+              "name": "id",
+              "type": "BIGINT",
+              "remark": "",
+              "chnname": "主键ID",
+              "pk": true,
+              "notNull": true,
+              "autoIncrement": true
+            },
+            {
+              "name": "parent_id",
+              "type": "BIGINT",
+              "remark": "",
+              "chnname": "父级ID"
+            },
+            {
+              "name": "blog_id",
+              "type": "BIGINT",
+              "remark": "",
+              "chnname": "博客ID"
+            },
+            {
+              "name": "content",
+              "type": "VARCHAR(4000)",
+              "remark": "",
+              "chnname": "内容"
+            },
+            {
+              "name": "deleted",
+              "type": "BIT(1)",
+              "remark": "",
+              "chnname": "是否删除：0-否，1-是",
+              "defaultValue": "0"
+            },
+            {
+              "name": "creator",
+              "type": "VARCHAR(64)",
+              "remark": "",
+              "chnname": "创建人",
+              "defaultValue": "NULL"
+            },
+            {
+              "name": "create_time",
+              "type": "DATETIME",
+              "remark": "",
+              "chnname": "创建时间",
+              "defaultValue": "CURRENT_TIMESTAMP"
+            },
+            {
+              "name": "editor",
+              "type": "VARCHAR(64)",
+              "remark": "",
+              "chnname": "编辑人",
+              "defaultValue": "NULL"
+            },
+            {
+              "name": "edit_time",
+              "type": "DATETIME",
+              "remark": "",
+              "chnname": "编辑时间",
+              "defaultValue": "CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP"
+            }
+          ],
+          "indexs": [],
+          "headers": [
+            {
+              "fieldName": "chnname",
+              "relationNoShow": false
+            },
+            {
+              "fieldName": "name",
+              "relationNoShow": false
+            },
+            {
+              "fieldName": "type",
+              "relationNoShow": false
+            },
+            {
+              "fieldName": "dataType",
+              "relationNoShow": true
+            },
+            {
+              "fieldName": "remark",
+              "relationNoShow": true
+            },
+            {
+              "fieldName": "pk",
+              "relationNoShow": false
+            },
+            {
+              "fieldName": "notNull",
+              "relationNoShow": true
+            },
+            {
+              "fieldName": "autoIncrement",
+              "relationNoShow": true
+            },
+            {
+              "fieldName": "defaultValue",
+              "relationNoShow": true
+            },
+            {
+              "fieldName": "relationNoShow",
+              "relationNoShow": true
+            },
+            {
+              "fieldName": "uiHint",
+              "relationNoShow": true
+            }
+          ],
+          "chnname": "博客评论表"
+        },
+        {
+          "title": "blog_view",
+          "fields": [
+            {
+              "name": "id",
+              "type": "BIGINT",
+              "remark": "",
+              "chnname": "主键ID",
+              "pk": true,
+              "notNull": true,
+              "autoIncrement": true
+            },
+            {
+              "name": "deleted",
+              "type": "BIT(1)",
+              "remark": "",
+              "chnname": "是否删除：0-否，1-是",
+              "defaultValue": "0"
+            },
+            {
+              "name": "creator",
+              "type": "VARCHAR(64)",
+              "remark": "",
+              "chnname": "创建人",
+              "defaultValue": "NULL"
+            },
+            {
+              "name": "create_time",
+              "type": "DATETIME",
+              "remark": "",
+              "chnname": "创建时间",
+              "defaultValue": "CURRENT_TIMESTAMP"
+            },
+            {
+              "name": "editor",
+              "type": "VARCHAR(64)",
+              "remark": "",
+              "chnname": "编辑人",
+              "defaultValue": "NULL"
+            },
+            {
+              "name": "edit_time",
+              "type": "DATETIME",
+              "remark": "",
+              "chnname": "编辑时间",
+              "defaultValue": "CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP"
+            }
+          ],
+          "indexs": [],
+          "headers": [
+            {
+              "fieldName": "chnname",
+              "relationNoShow": false
+            },
+            {
+              "fieldName": "name",
+              "relationNoShow": false
+            },
+            {
+              "fieldName": "type",
+              "relationNoShow": false
+            },
+            {
+              "fieldName": "dataType",
+              "relationNoShow": true
+            },
+            {
+              "fieldName": "remark",
+              "relationNoShow": true
+            },
+            {
+              "fieldName": "pk",
+              "relationNoShow": false
+            },
+            {
+              "fieldName": "notNull",
+              "relationNoShow": true
+            },
+            {
+              "fieldName": "autoIncrement",
+              "relationNoShow": true
+            },
+            {
+              "fieldName": "defaultValue",
+              "relationNoShow": true
+            },
+            {
+              "fieldName": "relationNoShow",
+              "relationNoShow": true
+            },
+            {
+              "fieldName": "uiHint",
+              "relationNoShow": true
+            }
+          ],
+          "chnname": "博客浏览记录表"
+        },
+        {
+          "title": "blog_type",
+          "fields": [
+            {
+              "name": "id",
+              "type": "BIGINT",
+              "remark": "",
+              "chnname": "主键ID",
+              "pk": true,
+              "notNull": true,
+              "autoIncrement": true
+            },
+            {
+              "name": "parent_id",
+              "type": "BIGINT",
+              "remark": "",
+              "chnname": "父级ID"
+            },
+            {
+              "name": "name",
+              "type": "VARCHAR(64)",
+              "remark": "",
+              "chnname": "类型名称"
+            },
+            {
+              "name": "code",
+              "type": "VARCHAR(64)",
+              "remark": "",
+              "chnname": "类型编码"
+            },
+            {
+              "name": "deleted",
+              "type": "BIT(1)",
+              "remark": "",
+              "chnname": "是否删除：0-否，1-是",
+              "defaultValue": "0"
+            },
+            {
+              "name": "creator",
+              "type": "VARCHAR(64)",
+              "remark": "",
+              "chnname": "创建人",
+              "defaultValue": "NULL"
+            },
+            {
+              "name": "create_time",
+              "type": "DATETIME",
+              "remark": "",
+              "chnname": "创建时间",
+              "defaultValue": "CURRENT_TIMESTAMP"
+            },
+            {
+              "name": "editor",
+              "type": "VARCHAR(64)",
+              "remark": "",
+              "chnname": "编辑人",
+              "defaultValue": "NULL"
+            },
+            {
+              "name": "edit_time",
+              "type": "DATETIME",
+              "remark": "",
+              "chnname": "编辑时间",
+              "defaultValue": "CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP"
+            }
+          ],
+          "indexs": [],
+          "headers": [
+            {
+              "fieldName": "chnname",
+              "relationNoShow": false
+            },
+            {
+              "fieldName": "name",
+              "relationNoShow": false
+            },
+            {
+              "fieldName": "type",
+              "relationNoShow": false
+            },
+            {
+              "fieldName": "dataType",
+              "relationNoShow": true
+            },
+            {
+              "fieldName": "remark",
+              "relationNoShow": true
+            },
+            {
+              "fieldName": "pk",
+              "relationNoShow": false
+            },
+            {
+              "fieldName": "notNull",
+              "relationNoShow": true
+            },
+            {
+              "fieldName": "autoIncrement",
+              "relationNoShow": true
+            },
+            {
+              "fieldName": "defaultValue",
+              "relationNoShow": true
+            },
+            {
+              "fieldName": "relationNoShow",
+              "relationNoShow": true
+            },
+            {
+              "fieldName": "uiHint",
+              "relationNoShow": true
+            }
+          ],
+          "chnname": "博客类型表"
         }
       ],
       "graphCanvas": {
-        "nodes": [
-          {
-            "shape": "table",
-            "title": "sys_user",
-            "moduleName": false,
-            "x": 260,
-            "y": -90,
-            "id": "dcab35b1"
-          },
-          {
-            "shape": "table",
-            "title": "sys_log",
-            "moduleName": false,
-            "x": -260,
-            "y": 680,
-            "id": "efba52b4"
-          },
-          {
-            "shape": "table",
-            "title": "r_role_permission",
-            "moduleName": false,
-            "x": 1000,
-            "y": -170,
-            "id": "79993423"
-          },
-          {
-            "shape": "table",
-            "title": "sys_permission",
-            "moduleName": false,
-            "x": 1000,
-            "y": 90,
-            "id": "87c7f00b"
-          },
-          {
-            "shape": "table",
-            "title": "t_demo",
-            "moduleName": false,
-            "x": 1000,
-            "y": 370,
-            "id": "6140a1b9"
-          },
-          {
-            "shape": "table",
-            "title": "t_user_info",
-            "moduleName": false,
-            "x": 260,
-            "y": -460,
-            "id": "9ab4dc70"
-          },
-          {
-            "shape": "table",
-            "title": "sys_third_token",
-            "moduleName": false,
-            "x": -200,
-            "y": -460,
-            "id": "2ec3a10a"
-          },
-          {
-            "shape": "table",
-            "title": "t_qq_user",
-            "moduleName": false,
-            "x": -190,
-            "y": -70,
-            "id": "f3adc08d"
-          },
-          {
-            "shape": "table",
-            "title": "t_github_user",
-            "moduleName": false,
-            "x": -260,
-            "y": 300,
-            "id": "785b80d3"
-          },
-          {
-            "shape": "table",
-            "title": "r_user_role",
-            "moduleName": false,
-            "x": 620,
-            "y": -200,
-            "id": "628a0469"
-          },
-          {
-            "shape": "table",
-            "title": "sys_role",
-            "moduleName": false,
-            "x": 630,
-            "y": 40,
-            "id": "325ae8ba"
-          },
-          {
-            "shape": "table",
-            "title": "r_role_menu",
-            "moduleName": false,
-            "x": 630,
-            "y": 290,
-            "id": "34bd1e3f"
-          },
-          {
-            "shape": "table",
-            "title": "sys_organization",
-            "moduleName": false,
-            "x": 180,
-            "y": 310,
-            "id": "efdf8758"
-          },
-          {
-            "shape": "table",
-            "title": "sys_menu",
-            "moduleName": false,
-            "x": 640,
-            "y": 570,
-            "id": "2a86d39e"
-          }
-        ],
+        "nodes": [],
         "edges": []
+      },
+      "associations": []
+    },
+    {
+      "name": "资源模块",
+      "chnname": "resource",
+      "entities": [
+        {
+          "title": "resource_type",
+          "fields": [
+            {
+              "name": "id",
+              "type": "BIGINT",
+              "remark": "",
+              "chnname": "主键ID",
+              "pk": true,
+              "notNull": true,
+              "autoIncrement": true
+            },
+            {
+              "name": "parent_id",
+              "type": "BIGINT",
+              "remark": "",
+              "chnname": "父级ID"
+            },
+            {
+              "name": "name",
+              "type": "VARCHAR(64)",
+              "remark": "",
+              "chnname": "类型名称"
+            },
+            {
+              "name": "code",
+              "type": "VARCHAR(64)",
+              "remark": "",
+              "chnname": "类型编码"
+            },
+            {
+              "name": "deleted",
+              "type": "BIT(1)",
+              "remark": "",
+              "chnname": "是否删除：0-否，1-是",
+              "defaultValue": "0"
+            },
+            {
+              "name": "creator",
+              "type": "VARCHAR(64)",
+              "remark": "",
+              "chnname": "创建人",
+              "defaultValue": "NULL"
+            },
+            {
+              "name": "create_time",
+              "type": "DATETIME",
+              "remark": "",
+              "chnname": "创建时间",
+              "defaultValue": "CURRENT_TIMESTAMP"
+            },
+            {
+              "name": "editor",
+              "type": "VARCHAR(64)",
+              "remark": "",
+              "chnname": "编辑人",
+              "defaultValue": "NULL"
+            },
+            {
+              "name": "edit_time",
+              "type": "DATETIME",
+              "remark": "",
+              "chnname": "编辑时间",
+              "defaultValue": "CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP"
+            }
+          ],
+          "indexs": [],
+          "headers": [
+            {
+              "fieldName": "chnname",
+              "relationNoShow": false
+            },
+            {
+              "fieldName": "name",
+              "relationNoShow": false
+            },
+            {
+              "fieldName": "type",
+              "relationNoShow": false
+            },
+            {
+              "fieldName": "dataType",
+              "relationNoShow": true
+            },
+            {
+              "fieldName": "remark",
+              "relationNoShow": true
+            },
+            {
+              "fieldName": "pk",
+              "relationNoShow": false
+            },
+            {
+              "fieldName": "notNull",
+              "relationNoShow": true
+            },
+            {
+              "fieldName": "autoIncrement",
+              "relationNoShow": true
+            },
+            {
+              "fieldName": "defaultValue",
+              "relationNoShow": true
+            },
+            {
+              "fieldName": "relationNoShow",
+              "relationNoShow": true
+            },
+            {
+              "fieldName": "uiHint",
+              "relationNoShow": true
+            }
+          ],
+          "chnname": "资源类型表"
+        },
+        {
+          "title": "resource_attribute",
+          "fields": [
+            {
+              "name": "id",
+              "type": "BIGINT",
+              "remark": "",
+              "chnname": "主键ID",
+              "pk": true,
+              "notNull": true,
+              "autoIncrement": true
+            },
+            {
+              "name": "name",
+              "type": "DefaultString",
+              "remark": "",
+              "chnname": "属性名称"
+            },
+            {
+              "name": "code",
+              "type": "DefaultString",
+              "remark": "",
+              "chnname": "属性编码"
+            },
+            {
+              "name": "sort",
+              "type": "DefaultString",
+              "remark": "",
+              "chnname": "顺序"
+            },
+            {
+              "name": "deleted",
+              "type": "BIT(1)",
+              "remark": "",
+              "chnname": "是否删除：0-否，1-是",
+              "defaultValue": "0"
+            },
+            {
+              "name": "creator",
+              "type": "VARCHAR(64)",
+              "remark": "",
+              "chnname": "创建人",
+              "defaultValue": "NULL"
+            },
+            {
+              "name": "create_time",
+              "type": "DATETIME",
+              "remark": "",
+              "chnname": "创建时间",
+              "defaultValue": "CURRENT_TIMESTAMP"
+            },
+            {
+              "name": "editor",
+              "type": "VARCHAR(64)",
+              "remark": "",
+              "chnname": "编辑人",
+              "defaultValue": "NULL"
+            },
+            {
+              "name": "edit_time",
+              "type": "DATETIME",
+              "remark": "",
+              "chnname": "编辑时间",
+              "defaultValue": "CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP"
+            }
+          ],
+          "indexs": [],
+          "headers": [
+            {
+              "fieldName": "chnname",
+              "relationNoShow": false
+            },
+            {
+              "fieldName": "name",
+              "relationNoShow": false
+            },
+            {
+              "fieldName": "type",
+              "relationNoShow": false
+            },
+            {
+              "fieldName": "dataType",
+              "relationNoShow": true
+            },
+            {
+              "fieldName": "remark",
+              "relationNoShow": true
+            },
+            {
+              "fieldName": "pk",
+              "relationNoShow": false
+            },
+            {
+              "fieldName": "notNull",
+              "relationNoShow": true
+            },
+            {
+              "fieldName": "autoIncrement",
+              "relationNoShow": true
+            },
+            {
+              "fieldName": "defaultValue",
+              "relationNoShow": true
+            },
+            {
+              "fieldName": "relationNoShow",
+              "relationNoShow": true
+            },
+            {
+              "fieldName": "uiHint",
+              "relationNoShow": true
+            }
+          ],
+          "chnname": "资源属性表"
+        },
+        {
+          "title": "r_resource_type_attribute",
+          "fields": [
+            {
+              "name": "id",
+              "type": "BIGINT",
+              "remark": "",
+              "chnname": "主键ID",
+              "pk": true,
+              "notNull": true,
+              "autoIncrement": true
+            },
+            {
+              "name": "type_id",
+              "type": "BIGINT",
+              "remark": "",
+              "chnname": "资源类型ID"
+            },
+            {
+              "name": "attr_id",
+              "type": "BIGINT",
+              "remark": "",
+              "chnname": "资源属性ID"
+            },
+            {
+              "name": "deleted",
+              "type": "BIT(1)",
+              "remark": "",
+              "chnname": "是否删除：0-否，1-是",
+              "defaultValue": "0"
+            },
+            {
+              "name": "creator",
+              "type": "VARCHAR(64)",
+              "remark": "",
+              "chnname": "创建人",
+              "defaultValue": "NULL"
+            },
+            {
+              "name": "create_time",
+              "type": "DATETIME",
+              "remark": "",
+              "chnname": "创建时间",
+              "defaultValue": "CURRENT_TIMESTAMP"
+            },
+            {
+              "name": "editor",
+              "type": "VARCHAR(64)",
+              "remark": "",
+              "chnname": "编辑人",
+              "defaultValue": "NULL"
+            },
+            {
+              "name": "edit_time",
+              "type": "DATETIME",
+              "remark": "",
+              "chnname": "编辑时间",
+              "defaultValue": "CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP"
+            }
+          ],
+          "indexs": [],
+          "headers": [
+            {
+              "fieldName": "chnname",
+              "relationNoShow": false
+            },
+            {
+              "fieldName": "name",
+              "relationNoShow": false
+            },
+            {
+              "fieldName": "type",
+              "relationNoShow": false
+            },
+            {
+              "fieldName": "dataType",
+              "relationNoShow": true
+            },
+            {
+              "fieldName": "remark",
+              "relationNoShow": true
+            },
+            {
+              "fieldName": "pk",
+              "relationNoShow": false
+            },
+            {
+              "fieldName": "notNull",
+              "relationNoShow": true
+            },
+            {
+              "fieldName": "autoIncrement",
+              "relationNoShow": true
+            },
+            {
+              "fieldName": "defaultValue",
+              "relationNoShow": true
+            },
+            {
+              "fieldName": "relationNoShow",
+              "relationNoShow": true
+            },
+            {
+              "fieldName": "uiHint",
+              "relationNoShow": true
+            }
+          ],
+          "chnname": "资源类别与属性关联表"
+        },
+        {
+          "title": "resource_info",
+          "fields": [
+            {
+              "name": "id",
+              "type": "BIGINT",
+              "remark": "",
+              "chnname": "主键ID",
+              "pk": true,
+              "notNull": true,
+              "autoIncrement": true
+            },
+            {
+              "name": "user_id",
+              "type": "BIGINT",
+              "remark": "",
+              "chnname": "用户ID"
+            },
+            {
+              "name": "nickname",
+              "type": "VARCHAR(64)",
+              "remark": "",
+              "chnname": "用户昵称"
+            },
+            {
+              "name": "avatar",
+              "type": "VARCHAR(1024)",
+              "remark": "",
+              "chnname": "用户头像"
+            },
+            {
+              "name": "title",
+              "type": "VARCHAR(128)",
+              "remark": "",
+              "chnname": "标题"
+            },
+            {
+              "name": "cover",
+              "type": "VARCHAR(1024)",
+              "remark": "",
+              "chnname": "封面"
+            },
+            {
+              "name": "summary",
+              "type": "DefaultString",
+              "remark": "",
+              "chnname": "简介"
+            },
+            {
+              "name": "deleted",
+              "type": "BIT(1)",
+              "remark": "",
+              "chnname": "是否删除：0-否，1-是",
+              "defaultValue": "0"
+            },
+            {
+              "name": "creator",
+              "type": "VARCHAR(64)",
+              "remark": "",
+              "chnname": "创建人",
+              "defaultValue": "NULL"
+            },
+            {
+              "name": "create_time",
+              "type": "DATETIME",
+              "remark": "",
+              "chnname": "创建时间",
+              "defaultValue": "CURRENT_TIMESTAMP"
+            },
+            {
+              "name": "editor",
+              "type": "VARCHAR(64)",
+              "remark": "",
+              "chnname": "编辑人",
+              "defaultValue": "NULL"
+            },
+            {
+              "name": "edit_time",
+              "type": "DATETIME",
+              "remark": "",
+              "chnname": "编辑时间",
+              "defaultValue": "CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP"
+            }
+          ],
+          "indexs": [],
+          "headers": [
+            {
+              "fieldName": "chnname",
+              "relationNoShow": false
+            },
+            {
+              "fieldName": "name",
+              "relationNoShow": false
+            },
+            {
+              "fieldName": "type",
+              "relationNoShow": false
+            },
+            {
+              "fieldName": "dataType",
+              "relationNoShow": true
+            },
+            {
+              "fieldName": "remark",
+              "relationNoShow": true
+            },
+            {
+              "fieldName": "pk",
+              "relationNoShow": false
+            },
+            {
+              "fieldName": "notNull",
+              "relationNoShow": true
+            },
+            {
+              "fieldName": "autoIncrement",
+              "relationNoShow": true
+            },
+            {
+              "fieldName": "defaultValue",
+              "relationNoShow": true
+            },
+            {
+              "fieldName": "relationNoShow",
+              "relationNoShow": true
+            },
+            {
+              "fieldName": "uiHint",
+              "relationNoShow": true
+            }
+          ],
+          "chnname": "资源信息表"
+        },
+        {
+          "title": "resource_info_attribute",
+          "fields": [
+            {
+              "name": "id",
+              "type": "BIGINT",
+              "remark": "",
+              "chnname": "主键ID",
+              "pk": true,
+              "notNull": true,
+              "autoIncrement": true
+            },
+            {
+              "name": "resource_id",
+              "type": "BIGINT",
+              "remark": "",
+              "chnname": "资源ID"
+            },
+            {
+              "name": "attr_name",
+              "type": "VARCHAR(64)",
+              "remark": "",
+              "chnname": "属性名称"
+            },
+            {
+              "name": "attr_value",
+              "type": "VARCHAR(128)",
+              "remark": "",
+              "chnname": "属性值"
+            },
+            {
+              "name": "deleted",
+              "type": "BIT(1)",
+              "remark": "",
+              "chnname": "是否删除：0-否，1-是",
+              "defaultValue": "0"
+            },
+            {
+              "name": "creator",
+              "type": "VARCHAR(64)",
+              "remark": "",
+              "chnname": "创建人",
+              "defaultValue": "NULL"
+            },
+            {
+              "name": "create_time",
+              "type": "DATETIME",
+              "remark": "",
+              "chnname": "创建时间",
+              "defaultValue": "CURRENT_TIMESTAMP"
+            },
+            {
+              "name": "editor",
+              "type": "VARCHAR(64)",
+              "remark": "",
+              "chnname": "编辑人",
+              "defaultValue": "NULL"
+            },
+            {
+              "name": "edit_time",
+              "type": "DATETIME",
+              "remark": "",
+              "chnname": "编辑时间",
+              "defaultValue": "CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP"
+            }
+          ],
+          "indexs": [],
+          "headers": [
+            {
+              "fieldName": "chnname",
+              "relationNoShow": false
+            },
+            {
+              "fieldName": "name",
+              "relationNoShow": false
+            },
+            {
+              "fieldName": "type",
+              "relationNoShow": false
+            },
+            {
+              "fieldName": "dataType",
+              "relationNoShow": true
+            },
+            {
+              "fieldName": "remark",
+              "relationNoShow": true
+            },
+            {
+              "fieldName": "pk",
+              "relationNoShow": false
+            },
+            {
+              "fieldName": "notNull",
+              "relationNoShow": true
+            },
+            {
+              "fieldName": "autoIncrement",
+              "relationNoShow": true
+            },
+            {
+              "fieldName": "defaultValue",
+              "relationNoShow": true
+            },
+            {
+              "fieldName": "relationNoShow",
+              "relationNoShow": true
+            },
+            {
+              "fieldName": "uiHint",
+              "relationNoShow": true
+            }
+          ],
+          "chnname": "资源属性内容表"
+        },
+        {
+          "title": "resource_download_info",
+          "fields": [
+            {
+              "name": "id",
+              "type": "BIGINT",
+              "remark": "",
+              "chnname": "主键ID",
+              "pk": true,
+              "notNull": true,
+              "autoIncrement": true
+            },
+            {
+              "name": "resource_id",
+              "type": "DefaultString",
+              "remark": "",
+              "chnname": "资源ID"
+            },
+            {
+              "name": "type",
+              "type": "DefaultString",
+              "remark": "",
+              "chnname": "类型"
+            },
+            {
+              "name": "link",
+              "type": "DefaultString",
+              "remark": "",
+              "chnname": "链接"
+            },
+            {
+              "name": "extract_code",
+              "type": "DefaultString",
+              "remark": "",
+              "chnname": "提取码"
+            },
+            {
+              "name": "uncompress_code",
+              "type": "DefaultString",
+              "remark": "",
+              "chnname": "解压码"
+            },
+            {
+              "name": "deleted",
+              "type": "BIT(1)",
+              "remark": "",
+              "chnname": "是否删除：0-否，1-是",
+              "defaultValue": "0"
+            },
+            {
+              "name": "creator",
+              "type": "VARCHAR(64)",
+              "remark": "",
+              "chnname": "创建人",
+              "defaultValue": "NULL"
+            },
+            {
+              "name": "create_time",
+              "type": "DATETIME",
+              "remark": "",
+              "chnname": "创建时间",
+              "defaultValue": "CURRENT_TIMESTAMP"
+            },
+            {
+              "name": "editor",
+              "type": "VARCHAR(64)",
+              "remark": "",
+              "chnname": "编辑人",
+              "defaultValue": "NULL"
+            },
+            {
+              "name": "edit_time",
+              "type": "DATETIME",
+              "remark": "",
+              "chnname": "编辑时间",
+              "defaultValue": "CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP"
+            }
+          ],
+          "indexs": [],
+          "headers": [
+            {
+              "fieldName": "chnname",
+              "relationNoShow": false
+            },
+            {
+              "fieldName": "name",
+              "relationNoShow": false
+            },
+            {
+              "fieldName": "type",
+              "relationNoShow": false
+            },
+            {
+              "fieldName": "dataType",
+              "relationNoShow": true
+            },
+            {
+              "fieldName": "remark",
+              "relationNoShow": true
+            },
+            {
+              "fieldName": "pk",
+              "relationNoShow": false
+            },
+            {
+              "fieldName": "notNull",
+              "relationNoShow": true
+            },
+            {
+              "fieldName": "autoIncrement",
+              "relationNoShow": true
+            },
+            {
+              "fieldName": "defaultValue",
+              "relationNoShow": true
+            },
+            {
+              "fieldName": "relationNoShow",
+              "relationNoShow": true
+            },
+            {
+              "fieldName": "uiHint",
+              "relationNoShow": true
+            }
+          ],
+          "chnname": "资源下载链接信息"
+        },
+        {
+          "title": "resource_comment",
+          "fields": [
+            {
+              "name": "id",
+              "type": "BIGINT",
+              "remark": "",
+              "chnname": "主键ID",
+              "pk": true,
+              "notNull": true,
+              "autoIncrement": true
+            },
+            {
+              "name": "parent_id",
+              "type": "BIGINT",
+              "remark": "",
+              "chnname": "父级ID"
+            },
+            {
+              "name": "resource_id",
+              "type": "BIGINT",
+              "remark": "",
+              "chnname": "资源ID"
+            },
+            {
+              "name": "content",
+              "type": "VARCHAR_4000",
+              "remark": "",
+              "chnname": "内容"
+            },
+            {
+              "name": "deleted",
+              "type": "BIT(1)",
+              "remark": "",
+              "chnname": "是否删除：0-否，1-是",
+              "defaultValue": "0"
+            },
+            {
+              "name": "creator",
+              "type": "VARCHAR(64)",
+              "remark": "",
+              "chnname": "创建人",
+              "defaultValue": "NULL"
+            },
+            {
+              "name": "create_time",
+              "type": "DATETIME",
+              "remark": "",
+              "chnname": "创建时间",
+              "defaultValue": "CURRENT_TIMESTAMP"
+            },
+            {
+              "name": "editor",
+              "type": "VARCHAR(64)",
+              "remark": "",
+              "chnname": "编辑人",
+              "defaultValue": "NULL"
+            },
+            {
+              "name": "edit_time",
+              "type": "DATETIME",
+              "remark": "",
+              "chnname": "编辑时间",
+              "defaultValue": "CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP"
+            }
+          ],
+          "indexs": [],
+          "headers": [
+            {
+              "fieldName": "chnname",
+              "relationNoShow": false
+            },
+            {
+              "fieldName": "name",
+              "relationNoShow": false
+            },
+            {
+              "fieldName": "type",
+              "relationNoShow": false
+            },
+            {
+              "fieldName": "dataType",
+              "relationNoShow": true
+            },
+            {
+              "fieldName": "remark",
+              "relationNoShow": true
+            },
+            {
+              "fieldName": "pk",
+              "relationNoShow": false
+            },
+            {
+              "fieldName": "notNull",
+              "relationNoShow": true
+            },
+            {
+              "fieldName": "autoIncrement",
+              "relationNoShow": true
+            },
+            {
+              "fieldName": "defaultValue",
+              "relationNoShow": true
+            },
+            {
+              "fieldName": "relationNoShow",
+              "relationNoShow": true
+            },
+            {
+              "fieldName": "uiHint",
+              "relationNoShow": true
+            }
+          ],
+          "chnname": "资源评论表"
+        }
+      ],
+      "graphCanvas": {
+        "edges": [],
+        "nodes": []
       },
       "associations": []
     }
@@ -3145,8 +4993,8 @@
         }
       },
       {
-        "name": "VARCHAR_4000",
-        "code": "VARCHAR_4000",
+        "name": "VARCHAR(4000)",
+        "code": "VARCHAR(4000)",
         "apply": {
           "MYSQL": {
             "type": "VARCHAR(4000)"
@@ -3179,6 +5027,60 @@
             "type": "VARCHAR(1024)"
           }
         }
+      },
+      {
+        "name": "CHAR(1)",
+        "code": "CHAR(1)",
+        "apply": {
+          "MYSQL": {
+            "type": "CHAR(1)"
+          }
+        }
+      },
+      {
+        "name": "CHAR(12)",
+        "code": "CHAR(12)",
+        "apply": {
+          "MYSQL": {
+            "type": "CHAR(12)"
+          }
+        }
+      },
+      {
+        "name": "VARCHAR(12)",
+        "code": "VARCHAR(12)",
+        "apply": {
+          "MYSQL": {
+            "type": "VARCHAR(12)"
+          }
+        }
+      },
+      {
+        "name": "SMALLINT(6)",
+        "code": "SMALLINT(6)",
+        "apply": {
+          "MYSQL": {
+            "type": "SMALLINT(6)"
+          }
+        }
+      },
+      {
+        "name": "TINYINT",
+        "code": "TINYINT",
+        "apply": {
+          "MYSQL": {
+            "type": "TINYINT"
+          }
+        }
+      },
+      {
+        "name": "INT",
+        "code": "INT",
+        "apply": {
+          "MYSQL": {
+            "type": "INT"
+          }
+        }
       }
     ],
     "database": [
@@ -3187,14 +5089,14 @@
         "template": "DROP TABLE {{=it.entity.title}};\n$blankline\nCREATE TABLE {{=it.entity.title}}(\n{{ pkList = [] ; }}\n{{~it.entity.fields:field:index}}\n    {{? field.pk }}{{ pkList.push(field.name) }}{{?}}\n    {{=field.name}} {{=field.type}} {{= field.pk ? 'NOT NULL' : '' }} COMMENT '{{=it.func.join(field.chnname,field.remark,';')}}' {{= index < it.entity.fields.length-1 ? ',' : ( pkList.length>0 ? ',' :'' ) }}\n{{~}}\n{{? pkList.length >0 }}\n    PRIMARY KEY ({{~pkList:pkName:i}}{{= pkName }}{{= i<pkList.length-1 ? ',' : '' }}{{~}})\n{{?}}\n) COMMENT = '{{=it.func.join(it.entity.chnname,it.entity.remark,';') }}'",
         "fileShow": true,
         "defaultDatabase": true,
-        "createTableTemplate": "CREATE TABLE IF NOT EXISTS {{=it.entity.title}}(\n{{ pkList = [] ; }}\n{{~it.entity.fields:field:index}}\n    {{? field.pk }}{{ pkList.push(field.name) }}{{?}}\n    {{=field.name}} {{=field.type}} {{= field.notNull ? 'NOT NULL' : '' }} {{= field.autoIncrement ? 'AUTO_INCREMENT' : '' }} {{= field.defaultValue ? it.func.join('DEFAULT',field.defaultValue,' ') : '' }} COMMENT '{{=it.func.join(field.chnname,field.remark,' ')}}' {{= index < it.entity.fields.length-1 ? ',' : ( pkList.length>0 ? ',' :'' ) }}\n{{~}}\n{{? pkList.length >0 }}\n    PRIMARY KEY ({{~pkList:pkName:i}}{{= pkName }}{{= i<pkList.length-1 ? ',' : '' }}{{~}})\n{{?}}\n) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT = '{{=it.func.join(it.entity.chnname,it.entity.remark,' ') }}'{{=it.separator}}\n$blankline\n",
+        "createTableTemplate": "CREATE TABLE IF NOT EXISTS {{=it.entity.title}}(\n{{ pkList = [] ; }}\n{{~it.entity.fields:field:index}}\n    {{? field.pk }}{{ pkList.push(field.name) }}{{?}}\n    {{=field.name}} {{=field.type}} {{= field.notNull ? 'NOT NULL' : '' }} {{= field.autoIncrement ? 'AUTO_INCREMENT' : '' }} {{= field.defaultValue ? it.func.join('DEFAULT',field.defaultValue,' ') : '' }} COMMENT '{{=it.func.join(field.chnname,field.remark,' ')}}' {{= index < it.entity.fields.length-1 ? ',' : ( pkList.length>0 ? ',' :'' ) }}\n{{~}}\n{{? pkList.length >0 }}\n    PRIMARY KEY ({{~pkList:pkName:i}}{{= pkName }}{{= i<pkList.length-1 ? ',' : '' }}{{~}})\n{{?}}\n) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC COMMENT='{{=it.func.join(it.entity.chnname,it.entity.remark,' ') }}'{{=it.separator}}\n$blankline\n",
         "deleteTableTemplate": "DROP TABLE {{=it.entity.title}};{{=it.separator}}/*SkipError*/",
         "rebuildTableTemplate": "create table PDMAN_UP_{{=it.oldEntity.title}}\nas select * from {{=it.oldEntity.title}};{{=it.separator}}\n$blankline\n\ndrop table {{=it.oldEntity.title}};{{=it.separator}}\n$blankline\n\nCREATE TABLE {{=it.newEntity.title}}(\n{{ pkList = [] ; }}\n{{~it.newEntity.fields:field:index}}\n    {{? field.pk }}{{ pkList.push(field.name) }}{{?}}\n    {{=field.name}} {{=field.type}} {{= field.notNull ? 'NOT NULL' : '' }} COMMENT '{{=it.func.join(field.chnname,field.remark,';')}}' {{= index < it.newEntity.fields.length-1 ? ',' : ( pkList.length>0 ? ',' :'' ) }}\n{{~}}\n{{? pkList.length >0 }}\n    PRIMARY KEY ({{~pkList:pkName:i}}{{= pkName }}{{= i<pkList.length-1 ? ',' : '' }}{{~}})\n{{?}}\n) COMMENT = '{{=it.func.join(it.newEntity.chnname,it.newEntity.remark,';') }}';{{=it.separator}}\n$blankline\n\n{{ sameCols = it.func.intersect(it.newEntity.fields,it.oldEntity.fields) ;}}\ninsert into {{=it.newEntity.title}}(\n{{~sameCols:field:index}}\n    {{=field.name}}{{? index<sameCols.length-1}},{{?}}\n{{~}}\n) \nselect \n{{~sameCols:field:index}}\n    {{=field.name}}{{? index<sameCols.length-1}},{{?}}\n{{~}}\nfrom PDMAN_UP_{{=it.oldEntity.title}};{{=it.separator}}\n$blankline\n\ndrop table PDMAN_UP_{{=it.oldEntity.title}};{{=it.separator}}\n$blankline\n{{~it.newEntity.indexs:index}}\nALTER TABLE {{=it.newEntity.title}} ADD {{? index.isUnique}}UNIQUE{{??}}INDEX{{?}} {{=index.name}}({{=it.func.join(...index.fields,',')}});{{=it.separator}}\n{{~}}",
         "createFieldTemplate": "ALTER TABLE {{=it.entity.title}} ADD COLUMN {{=it.field.name}} {{=it.field.type}} {{? it.field.notNull}}NOT NULL{{?}} {{? it.field.defaultValue}}DEFAULT {{? null==it.field.defaultValue}}NULL{{??}}'{{=it.field.defaultValue}}'{{?}}{{?}} {{? it.field.autoIncrement}}AUTO_INCREMENT{{?}} {{? it.field.pk}}PRIMARY KEY{{?}} {{? it.field.chnname}}COMMENT '{{=it.field.chnname}}'{{?}} {{? it.field.addAfter}}AFTER {{=it.field.addAfter}}{{?}};{{=it.separator}}",
         "updateFieldTemplate": "ALTER TABLE {{=it.entity.title}} MODIFY COLUMN {{=it.field.name}} {{=it.field.type}} {{? it.field.notNull}}NOT NULL{{?}} {{? it.field.defaultValue}}DEFAULT {{? null==it.field.defaultValue}}NULL{{??}}'{{=it.field.defaultValue}}'{{?}}{{?}} {{? it.field.autoIncrement}}AUTO_INCREMENT{{?}} {{? it.field.chnname}}COMMENT '{{=it.field.chnname}}'{{?}};{{=it.separator}}",
         "deleteFieldTemplate": "ALTER TABLE {{=it.entity.title}} DROP {{=it.field.name}};{{=it.separator}}",
         "deleteIndexTemplate": "ALTER TABLE {{=it.entity.title}} DROP INDEX {{=it.index.name}};{{=it.separator}}",
-        "createIndexTemplate": "ALTER TABLE {{=it.entity.title}} ADD {{? it.index.isUnique}}UNIQUE{{??}}INDEX{{?}} {{=it.index.name}}({{=it.func.join(...it.index.fields,',')}});{{=it.separator}}",
+        "createIndexTemplate": "ALTER TABLE {{=it.entity.title}} ADD {{? it.index.isUnique}}UNIQUE{{??}}INDEX{{?}} {{=it.index.name}}({{=it.func.join(...it.index.fields,',')}}){{=it.separator}}",
         "updateTableComment": "ALTER TABLE {{=it.entity.title}} COMMENT '{{=it.entity.chnname}}';{{=it.separator}}"
       },
       {
@@ -3207,7 +5109,7 @@
         "updateFieldTemplate": "ALTER TABLE {{=it.entity.title}} MODIFY({{=it.field.name}} {{=it.field.type}}{{? it.field.defaultValue}} DEFAULT {{=it.field.defaultValue}}{{?}}{{? it.field.notNull}} NOT NULL{{?}});{{=it.separator}}\r\n{{? it.field.chnname || it.field.remark}}COMMENT ON COLUMN {{=it.entity.title}}.{{=it.field.name}} IS {{? it.field.remark}}'{{=it.field.remark}}'{{??}}'{{=it.field.chnname}}'{{?}};{{=it.separator}}{{=it.separator}}{{?}}\r\n$blankline",
         "deleteFieldTemplate": "ALTER TABLE {{=it.entity.title}} DROP({{=it.field.name}});{{=it.separator}}\r\n$blankline",
         "deleteIndexTemplate": "DROP INDEX {{=it.entity.title}}.{{=it.index.name}};{{=it.separator}}\r\n$blankline",
-        "createIndexTemplate": "CREATE{{? it.index.isUnique}} UNIQUE{{?}} INDEX {{=it.index.name}} ON {{=it.entity.title}}({{=it.func.join(it.index.fields,',')}});{{=it.separator}}\r\n$blankline",
+        "createIndexTemplate": "CREATE{{? it.index.isUnique}} UNIQUE{{?}} INDEX {{=it.index.name}} ON {{=it.entity.title}}({{=it.func.join(it.index.fields,',')}}){{=it.separator}}\r\n$blankline",
         "updateTableComment": "{{? it.entity.chnname || it.entity.remark}}COMMENT ON TABLE {{=it.entity.title}} IS {{? it.entity.remark}}'{{=it.entity.remark}}'{{??}}'{{=it.entity.chnname}}'{{?}};{{=it.separator}}{{?}}\r\n$blankline"
       },
       {

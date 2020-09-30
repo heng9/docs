@@ -509,7 +509,27 @@ public class $!{queryName} extends BaseQuery {
 
 
 
-t_demo 表样例
+* t_demo 表样例
+
+```sql
+CREATE TABLE IF NOT EXISTS t_demo(
+    id BIGINT NOT NULL AUTO_INCREMENT  COMMENT '主键ID' ,
+    username VARCHAR(64) NOT NULL   COMMENT '用户名' ,
+    password VARCHAR(64) NOT NULL   COMMENT '密码' ,
+    birthday DATETIME   DEFAULT NULL COMMENT '生日' ,
+    gender VARCHAR(8)   DEFAULT NULL COMMENT '性别' ,
+    deleted BIT(1)   DEFAULT 0 COMMENT '是否删除' ,
+    disabled BIT(1)   DEFAULT 0 COMMENT '是否禁用' ,
+    creator VARCHAR(32)   DEFAULT NULL COMMENT '创建人' ,
+    create_time DATETIME   DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间' ,
+    editor VARCHAR(32)   DEFAULT NULL COMMENT '最后编辑人' ,
+    edit_time DATETIME   DEFAULT CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP COMMENT '编辑时间' ,
+    PRIMARY KEY (id),
+    UNIQUE index_username(username) USING BTREE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT = '测试用例表 ';
+```
+
+* xml
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -755,7 +775,7 @@ t_demo 表样例
 		WHERE id = #{id}
 	</update>
 
-	<delete id="deleteByPrimaryKey" parameterType="java.util.List">
+	<delete id="deleteByPrimaryKey" parameterType="int">
 		DELETE FROM t_demo
 		WHERE id = #{id}
 	</delete>
