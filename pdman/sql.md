@@ -348,9 +348,197 @@ public interface SysDictItemMapper {
 
 
 
+* 树形结构
+
+```java
+@Data
+public abstract class TreeNode<T extends TreeNode<T>> {
+    private Long id;
+    private Long parentId;
+    List<T> children;
+}
+```
+
+```java
+public abstract class TreeService<T extends TreeNode<T>> {
+    /**
+     * 获取 parent_id 为 null 的所有结点
+     */
+    protected abstract List<T> getStartNodes();
+
+    /**
+     * 根据父级ID获取所有子节点
+     *
+     * @param parentId 父级ID
+     * @return 父级ID下的所有子节点
+     */
+    protected abstract List<T> getChildrenByParentId(Long parentId);
+
+    /**
+     * 根据节点ID获取节点的详细信息
+     *
+     * @param ids 节点ID
+     * @return
+     */
+    protected abstract List<T> getNodesByIds(Set<Long> ids);
+
+    /**
+     * 获取整个树形结构
+     *
+     * @return 树形结构数据
+     */
+    public List<T> getTree() {
+        List<T> startNodes = this.getStartNodes();
+        this.getChildNodes(startNodes);
+        return startNodes;
+    }
+
+    /**
+     * 递归获取节点下的子节点
+     *
+     * @param nodes 节点
+     */
+    private void getChildNodes(List<T> nodes) {
+        if (nodes != null && nodes.size() > 0) {
+            for (T node : nodes) {
+                List<T> children = getChildrenByParentId(node.getId());
+                node.setChildren(children);
+                this.getChildNodes(children);  //递归
+            }
+        }
+    }
 
 
+    /**
+     * 根据尾节点获取树形结构
+     *
+     * @param ids 尾节点ID
+     * @return 树形结构
+     */
+    public List<T> getTreeByLeafIds(Set<Long> ids) {
+        Set<T> allNodes = new HashSet<>();
+        Set<Long> allNodeIds = new HashSet<>();
+        this.addNodeByIds(ids, allNodes, allNodeIds);
+        return this.recursion(allNodes, null);
+    }
 
+    /**
+     * 根据尾节点递归获取从尾节点到根节点的数据
+     *
+     * @param ids 节点Ids
+     * @param allNodes 存放所有节点数据
+     * @param allNodeIds 存放所有节点的ID
+     */
+    private void addNodeByIds(Set<Long> ids, Set<T> allNodes, Set<Long> allNodeIds) {
+        if (ids != null && ids.size() > 0) {
+            allNodeIds.addAll(ids);
+            List<T> nodes = this.getNodesByIds(ids);
+            if (nodes != null && nodes.size() > 0) {
+                allNodes.addAll(nodes);  // 加入到所有节点中，利用Set去重
+                Set<Long> parentIds = nodes.stream()
+                        .map(TreeNode::getParentId)
+                        .filter(Objects::nonNull)
+                        .collect(Collectors.toSet()); // 获取所有节点的非空parentId并去重
+                parentIds.removeAll(allNodeIds);  // 求差集，已查找过存在的节点不再查找
+                this.addNodeByIds(parentIds, allNodes, allNodeIds);  // 递归获取父节点，并加入到所有节点中
+            }
+        }
+    }
+
+    /**
+     * 将扁平的记录恢复成树型结构数据
+     *
+     * @param nodes 需要递归处理的数据
+     * @param id    父级ID
+     *              递归获取树型结构数据
+     */
+    private List<T> recursion(Set<T> nodes, Long id) {
+        List<T> tree = new ArrayList<>();
+
+        Iterator<T> it = nodes.iterator();
+        while (it.hasNext()) {
+            T node = it.next();
+            Long parentId = node.getParentId() == null ? null : node.getParentId().longValue();
+            if (parentId == id) {
+                tree.add(node);
+                it.remove();  //使用Iterator，以便在迭代时把listData中已经添加到treeList的数据删除，迭代次数
+            }
+        }
+        for (T node : tree) {
+            node.setChildren(recursion(nodes, node.getId()));
+        }
+
+        return tree;
+    }
+}
+```
+
+```java
+@Data
+public class Comment extends TreeNode<Comment> {
+    private String content;
+}
+```
+
+```java
+@Service
+public class CommentService extends TreeService<Comment> {
+    @Autowired
+    private CommentMapper commentMapper;
+
+    @Override
+    public List<Comment> getStartNodes() {
+        return commentMapper.getStartNodes();
+    }
+
+    @Override
+    public List<Comment> getChildrenByParentId(Long parentId) {
+        return commentMapper.getChildrenByParentId(parentId);
+    }
+    
+    @Override
+    protected List<Comment> getNodesByIds(Set<Long> ids) {
+        return commentMapper.getNodesByIds(ids);
+    }
+}
+```
+
+```xml
+<mapper namespace="org.example.mapper.CommentMapper">
+    <resultMap id="BaseMap" type="org.example.entity.Comment">
+        <id property="id" column="id"/>
+        <result property="parentId" column="parent_id"/>
+        <result property="content" column="content"/>
+    </resultMap>
+    <select id="getStartNodes" resultMap="BaseMap">
+        SELECT id, parent_id, content
+        FROM t_comment
+        WHERE parent_id IS NULL
+    </select>
+    <select id="getChildrenByParentId" parameterType="long" resultMap="BaseMap">
+        SELECT id, parent_id, content
+        FROM t_comment
+        WHERE parent_id = #{parentId}
+    </select>
+	<select id="getNodesByIds" parameterType="java.util.Set" resultMap="BaseMap">
+        SELECT id, parent_id, content
+        FROM t_comment
+        WHERE id IN
+        <foreach collection="ids" index="index" item="item" open="(" separator="," close=")">
+            #{item}
+        </foreach>
+    </select>
+</mapper>
+```
+
+```sql
+CREATE TABLE IF NOT EXISTS t_comment(
+    id BIGINT NOT NULL AUTO_INCREMENT  COMMENT '主键ID' ,
+    parent_id VARCHAR(32) COMMENT '父级ID' ,
+    content VARCHAR(32) COMMENT '内容' ,
+    PRIMARY KEY (id)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC COMMENT='评论表';
+```
 
 
 
